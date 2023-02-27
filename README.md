@@ -1,6 +1,5 @@
 Welcome to your new dbt project!
 
-This is a test.
 ### Using the starter project
 
 Try running the following commands:

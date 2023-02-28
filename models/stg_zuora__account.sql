@@ -10,7 +10,7 @@ fields as (
         {{
             fivetran_utils.fill_staging_columns(
                 source_columns=adapter.get_columns_in_relation(ref('stg_zuora__account_tmp')),
-                staging_columns=get_comment_columns()
+                staging_columns=get_account_columns()
             )
         }}
     from base

@@ -4,7 +4,7 @@ config-version: 2
 profile: 'integration_tests'
 
 vars:
-  zuora_schema: zuora_source_integrations_tests
+  zuora_schema: zuora_source_integration_tests
   zuora_source:
     zuora_account_identifier: "zuora_account_data"
     zuora_contact_identifier: "zuora_contact_data"

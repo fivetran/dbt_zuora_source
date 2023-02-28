@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_zuora__account
-    description: 
+    description: sample
     columns:
       - name: account_id
       - name: account_number
@@ -23,7 +23,7 @@ models:
 
 models:
   - name: stg_zuora__contact
-    description: 
+    description: sample
     columns:
       - name: contact_id 
       - name: account_id

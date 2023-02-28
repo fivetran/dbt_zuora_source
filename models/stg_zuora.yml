@@ -21,7 +21,6 @@ models:
       - name: account_status
       - name: total_invoice_balance
 
-models:
   - name: stg_zuora__contact
     description: sample
     columns:

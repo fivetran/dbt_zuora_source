@@ -1,0 +1,3 @@
+id,_fivetran_synced,account_id,address_1,address_2,city,created_date,country,first_name,last_name,postal_code,state,updated_date,work_email
+a33d1f8c,2019-01-10 3:13:36.649,dff38ac0,1 Main Street,Apartment 105,Boston,2015-01-15 16:35:28.000,United States,Bill,Smith,02108,Massachusetts,2016-02-05 6:16:18.230,test@test.com
+efe349a0,2018-08-16 1:34:15.223,2c92c0f8,2nd 1st Avenue,,Paris,2015-01-15 16:35:33.535,France,Mary,Jones,70123,,2016-02-08 9:16:18.230,test2@test.com

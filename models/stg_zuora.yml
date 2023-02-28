@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_zuora__account
+    description: 
+    columns:
+      - name: account_id
+      - name: account_number
+      - name: auto_pay
+      - name: bill_to_contact_id
+      - name: created_date
+      - name: currency
+      - name: default_payment_method_id
+      - name: last_invoice_date
+      - name: invoice_template_id
+      - name: mrr
+      - name: account_name
+      - name: parent_account_id
+      - name: payment_term
+      - name: sold_to_contact_id
+      - name: account_status
+      - name: total_invoice_balance
+
+models:
+  - name: stg_zuora__contact
+    description: 
+    columns:
+      - name: contact_id 
+      - name: account_id
+      - name: address_1
+      - name: address_2
+      - name: city
+      - name: created_date
+      - name: country
+      - name: first_name
+      - name: last_name
+      - name: postal_code
+      - name: state
+      - name: updated_date
+      - name: work_email   

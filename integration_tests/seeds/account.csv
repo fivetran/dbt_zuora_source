@@ -1,0 +1,3 @@
+id,_fivetran_synced,account_number,auto_pay,balance,bill_to_contact_id,created_date,credit_balance,currency,default_payment_method_id,last_invoice_date,invoice_template_id,mrr,name,parent_account_id,payment_term,sold_to_contact_id,status,tax_exempt_status,total_debit_memo_balance,total_invoice_balance,unapplied_balance
+dff38ac0,2019-02-20 09:33:15.662,A00000125,true,478.11,a33d1f8c,2018-12-26 12:47:17.000,0,USD,2c92c0f9,2018-12-05 00:00:00.000,ddd38ac1,19.99,test,,Due Upon Receipt,a33d1f8c,Active,No,0,43221,0
+2c92c0f8,2018-08-16 10:51:06.453,A00000119,false,9204.33,efe349a0,2016-01-15 20:42:32.000,12,GBP,dff38ac0,2018-12-05 00:00:00.000,ddd38ac2,1102.33,test2,2c92c0f8,Net 30,efe349a0,Active,No,0,1100841,0

@@ -8,6 +8,8 @@
     {"name": "balance", "datatype": dbt.type_float()}, 
     {"name": "bill_to_contact_id", "datatype": dbt.type_string()},
     {"name": "created_date", "datatype": dbt.type_timestamp()},
+
+    {"name": "created_by_id", "datatype": dbt.type_string()},
     {"name": "credit_balance", "datatype": dbt.type_float()}, 
     {"name": "currency", "datatype": dbt.type_string()}, 
     {"name": "default_payment_method_id", "datatype": dbt.type_string()},

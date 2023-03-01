@@ -37,3 +37,19 @@ models:
       - name: state
       - name: updated_date
       - name: work_email   
+
+  - name: stg_zuora__product
+    description: sample
+    columns:
+      - name: product_id 
+      - name: allow_feature_changes
+      - name: created_by_id 
+      - name: created_date
+      - name: category
+      - name: product_description 
+      - name: effective_end_date
+      - name: effective_start_date
+      - name: product_name
+      - name: sku
+      - name: updated_by_id
+      - name: updated_date 

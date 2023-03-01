@@ -24,6 +24,7 @@ final as (
         auto_pay,
         balance,
         bill_to_contact_id,
+        created_by_id,
         created_date,
         credit_balance,
         currency,

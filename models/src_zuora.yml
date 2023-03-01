@@ -21,6 +21,7 @@ sources:
           - name: auto_pay
           - name: bill_to_contact_id
           - name: created_date
+          - name: created_by_id
           - name: currency
           - name: default_payment_method_id
           - name: last_invoice_date
@@ -50,3 +51,20 @@ sources:
           - name: state
           - name: updated_date
           - name: work_email
+    
+      - name: product
+        identifier: "{{ var('zuora_product_identifier', 'product')}}"
+        description: fill in 
+        columns:
+          - name: id 
+          - name: allow_feature_changes
+          - name: created_by_id 
+          - name: created_date
+          - name: category
+          - name: description 
+          - name: effective_end_date
+          - name: effective_start_date
+          - name: name
+          - name: sku
+          - name: updated_by_id
+          - name: updated_date 

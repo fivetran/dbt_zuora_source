@@ -7,7 +7,13 @@ vars:
   zuora_source:
     account: "{{ source('zuora', 'account') }}"
     contact: "{{ source('zuora', 'contact') }}"
+    invoice: "{{ source('zuora', 'invoice') }}"
+    order: "{{ source('zuora', 'order') }}"
+    product: "{{ source('zuora', 'product') }}"
+    subscription: "{{ source('zuora', 'subscription') }}"
 
+  zuora_account_pass_through_columns: []
+  zuora_subscription_pass_through_columns: []
 
 models:
   dbt_zuora_source:

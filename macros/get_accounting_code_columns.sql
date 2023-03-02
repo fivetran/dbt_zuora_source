@@ -1,18 +1,18 @@
-{% macro get_product_columns() %}
+{% macro get_accounting_code_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_deleted", "datatype": "boolean"},
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
-    {"name": "allow_feature_changes", "datatype": "boolean"},
     {"name": "category", "datatype": dbt.type_string()},
     {"name": "created_by_id", "datatype": dbt.type_string()},
     {"name": "created_date", "datatype": dbt.type_timestamp()},
-    {"name": "description", "datatype": dbt.type_string()},
-    {"name": "effective_end_date", "datatype": "date"},
-    {"name": "effective_start_date", "datatype": "date"},
+    {"name": "glaccount_name", "datatype": dbt.type_string()},
+    {"name": "glaccount_number", "datatype": dbt.type_string()},
     {"name": "id", "datatype": dbt.type_string()},
     {"name": "name", "datatype": dbt.type_string()},
-    {"name": "sku", "datatype": dbt.type_string()},
+    {"name": "notes", "datatype": dbt.type_string()},
+    {"name": "status", "datatype": dbt.type_string()},
+    {"name": "type", "datatype": dbt.type_string()},
     {"name": "updated_by_id", "datatype": dbt.type_string()},
     {"name": "updated_date", "datatype": dbt.type_timestamp()}
 ] %}

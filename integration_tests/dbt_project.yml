@@ -8,6 +8,10 @@ vars:
   zuora_source:
     zuora_account_identifier: "zuora_account_data"
     zuora_contact_identifier: "zuora_contact_data"
+    zuora_invoice_identifier: "zuora_invoice_data"
+    zuora_order_identifier: "zuora_order_data"
+    zuora_product_identifier: "zuora_product_data"
+    zuora_subscription_identifier: "zuora_subscription_data"
 
 dispatch:
   - macro_namespace: dbt_utils

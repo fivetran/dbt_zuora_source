@@ -68,3 +68,97 @@ sources:
           - name: sku
           - name: updated_by_id
           - name: updated_date 
+
+      - name: invoice
+        identifier: "{{ var('zuora_invoice_identifier', 'invoice')}}"
+        description: fill in 
+        columns:
+          - name: id 
+          - name: account_id
+          - name: adjustment_amount 
+          - name: amount
+          - name: amount_currency_rounding
+          - name: amount_home_currency 
+          - name: amount_without_tax_home_currency
+          - name: auto_pay
+          - name: balance
+          - name: bill_to_contact_id
+          - name: created_by_id
+          - name: created_date 
+          - name: default_payment_method_id
+          - name: due_date
+          - name: exchange_rate
+          - name: exchange_rate_date
+          - name: home_currency
+          - name: invoice_date
+          - name: invoice_number
+          - name: payment_amount
+          - name: sold_to_contact_id
+          - name: source_id
+          - name: source_type
+          - name: transaction_currency
+          - name: updated_by_id
+          - name: updated_date 
+
+      - name: order
+        identifier: "{{ var('zuora_order_identifier', 'order')}}"
+        description: fill in 
+        columns:
+          - name: id 
+          - name: account_id 
+          - name: bill_to_contact_id
+          - name: category
+          - name: created_by_id
+          - name: created_date 
+          - name: default_payment_method_id
+          - name: description
+          - name: order_date
+          - name: order_number 
+          - name: parent_account_id
+          - name: sold_to_contact_id
+          - name: state
+          - name: status 
+          - name: updated_date    
+
+      - name: subscription
+        identifier: "{{ var('zuora_subscription_identifier', 'subscription')}}"
+        description: fill in 
+        columns:
+          - name: id 
+          - name: account_id
+          - name: auto_renew 
+          - name: bill_to_contact_id
+          - name: cancelled_date
+          - name: contract_acceptance_date 
+          - name: contract_effective_date
+          - name: created_by_id
+          - name: created_date
+          - name: current_term
+          - name: current_term_period_type
+          - name: default_payment_method_id 
+          - name: default_payment_method_id
+          - name: initial_term
+          - name: initial_term_period_type
+          - name: invoice_owner_id
+          - name: is_invoice_separate
+          - name: name
+          - name: original_created_date
+          - name: original_id
+          - name: parent_account_id
+          - name: previous_subscription_id
+          - name: renewal_term
+          - name: renewal_term_period_type
+          - name: service_activation_date
+          - name: sold_to_contact_id 
+          - name: status
+          - name: subscription_end_date
+          - name: subscription_start_date
+          - name: subscription_version_amendment_id
+          - name: term_end_date
+          - name: term_start_date
+          - name: term_type
+          - name: updated_by_id
+          - name: updated_date
+          - name: version
+          - name: is_latest_version
+          - name: cancel_reason

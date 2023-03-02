@@ -1,3 +1,4 @@
+
 with base as (
 
     select * 
@@ -18,23 +19,37 @@ fields as (
 
 final as (
     
-    select 
-        id as contact_id, 
+    select  
+        _fivetran_deleted,
+        _fivetran_synced,
         account_id,
         address_1,
         address_2,
         city,
-        created_date,
         country,
+        county,
+        created_by_id,
+        created_date,
+        description,
+        fax,
         first_name,
+        home_phone,
+        id,
         last_name,
+        mobile_phone,
+        nick_name,
+        other_phone,
+        other_phone_type,
+        personal_email,
         postal_code,
         state,
+        tax_region,
+        updated_by_id,
         updated_date,
         work_email,
-        _fivetran_synced
+        work_phone
     from fields
 )
 
-select * 
-from final  
+select *
+from final

@@ -1,3 +1,4 @@
+
 with base as (
 
     select * 
@@ -19,28 +20,64 @@ fields as (
 final as (
     
     select 
-        id as account_id, 
+        _fivetran_deleted,
+        _fivetran_synced,
         account_number,
+        additional_email_addresses,
+        allow_invoice_edit,
         auto_pay,
         balance,
+        batch,
+        bcd_setting_option,
+        bill_cycle_day,
         bill_to_contact_id,
+        bill_to_id,
+        communication_profile_id,
         created_by_id,
         created_date,
         credit_balance,
+        crm_id,
         currency,
+        customer_service_rep_name,
         default_payment_method_id,
-        last_invoice_date,
+        id,
+        invoice_delivery_prefs_email,
+        invoice_delivery_prefs_print,
         invoice_template_id,
+        last_invoice_date,
         mrr,
-        name as account_name,
+        name,
+        notes,
         parent_account_id,
+        parent_id,
+        payment_gateway,
         payment_term,
+        purchase_order_number,
+        sales_rep_name,
+        sequence_set_id,
         sold_to_contact_id,
-        status as account_status, 
+        sold_to_id,
+        status,
+        tax_company_code,
+        tax_exempt_certificate_id,
+        tax_exempt_certificate_type,
+        tax_exempt_description,
+        tax_exempt_effective_date,
+        tax_exempt_entity_use_code,
+        tax_exempt_expiration_date,
+        tax_exempt_issuing_jurisdiction,
+        tax_exempt_status,
+        testcustom_1_c,
+        testcustom_2_c,
+        total_debit_memo_balance,
         total_invoice_balance,
-        _fivetran_synced
+        unapplied_balance,
+        unapplied_credit_memo_amount,
+        updated_by_id,
+        updated_date,
+        vatid
     from fields
 )
 
-select * 
-from final  
+select *
+from final

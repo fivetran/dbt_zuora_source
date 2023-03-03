@@ -1,6 +1,6 @@
 Welcome to your new dbt project!
 
-### Using the starter project
+### 🚧 UNDER CONSTRUCTION 🚧
 
 This is a test.
 

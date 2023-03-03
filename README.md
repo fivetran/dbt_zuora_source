@@ -1,6 +1,5 @@
-Welcome to your new dbt project!
 
-### 🚧 UNDER CONSTRUCTION 🚧
+# 🚧 UNDER CONSTRUCTION 🚧
 
 This is a test.
 

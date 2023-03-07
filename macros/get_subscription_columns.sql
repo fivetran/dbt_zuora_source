@@ -16,8 +16,7 @@
     {"name": "creator_account_id", "datatype": dbt.type_string()},
     {"name": "creator_invoice_owner_id", "datatype": dbt.type_string()},
     {"name": "current_term", "datatype": dbt.type_int()},
-    {"name": "current_term_period_type", "datatype": dbt.type_string()},
-    {"name": "custom_date_field_c", "datatype": "date"},
+    {"name": "current_term_period_type", "datatype": dbt.type_string()}, 
     {"name": "default_payment_method_id", "datatype": dbt.type_string()},
     {"name": "externally_managed_by", "datatype": dbt.type_string()},
     {"name": "id", "datatype": dbt.type_string()},
@@ -53,12 +52,13 @@
     {"name": "subscription_version_amendment_id", "datatype": dbt.type_string()},
     {"name": "term_end_date", "datatype": dbt.type_timestamp()},
     {"name": "term_start_date", "datatype": dbt.type_timestamp()},
-    {"name": "term_type", "datatype": dbt.type_string()},
-    {"name": "testcustomaakash_c", "datatype": dbt.type_string()},
+    {"name": "term_type", "datatype": dbt.type_string()}, 
     {"name": "updated_by_id", "datatype": dbt.type_string()},
     {"name": "updated_date", "datatype": dbt.type_timestamp()},
     {"name": "version", "datatype": dbt.type_int()}
 ] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('zuora_subscription_pass_through_columns')) }}
 
 {{ return(columns) }}
 

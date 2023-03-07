@@ -2,24 +2,170 @@ version: 2
 
 models:
   - name: stg_zuora__account
-    description: sample
-    columns:
+    description: "{{ doc('account_table') }}"
+    columns: 
       - name: account_id
+        description: "{{ doc('id') }} account table."
       - name: account_number
+        description: Unique account number assigned to the account. 
       - name: auto_pay
+        description: Indicates if future payments are automatically collected when they're due during a Payment Run.
+      - name: balance
+        description: Current outstanding balance for the account. Can be calculated by (Total Invoice Balance – Total Credit Balance)
+      - name: bill_cycle_day	
+        description: Day on which bill runs generate invoices for the account.
       - name: bill_to_contact_id
+        description: "{{ doc('bill_to_contact_id') }}" 
       - name: created_date
+        description: "{{ doc('created_at') }} the account."
+      - name: created_by_id
+        description: "{{ doc('created_by_id') }} the account."
+      - name: credit_balance
+        description: Total credit balance for the account.
+      - name: crm_id
+        description: CRM account ID, used in Salesforce integration.
       - name: currency
+        description: "{{ doc('currency') }}" 
       - name: default_payment_method_id
+        description: "{{ doc('default_payment_method_id') }}"
       - name: last_invoice_date
-      - name: invoice_template_id
+        description: The date when the previous invoice was generated for the account. The field value is null if no invoice has ever been generated for the account.
       - name: mrr
-      - name: account_name
-      - name: parent_account_id
-      - name: payment_term
+        description: The amount of predictable revenue expected to be received on a monthly basis.
+      - name: name
+        description: Account name as displayed in Zuora.
+      - name: notes
+        description: Comments about the account.
+      - name: parent_account_id 
+        description: Identifier of the parent customer account for this account. Use this field if you have customer hierarchy enabled.
+      - name: payment_gateway
+        description: Gateway used for processing electronic payments and refunds.
+      - name: payment_term 
+        description: Indicates when the customer pays for subscriptions.
       - name: sold_to_contact_id
-      - name: account_status
+        description: "{{ doc('sold_to_contact_id') }}" 
+      - name: status
+        description: Status of the account in the system.
+      - name: tax_exempt_effective_date
+        description: Date when the customer's tax exemption starts.
+      - name: tax_exempt_expiration_date
+        description: Date when the customer's tax exemption certificate expires.
+      - name: tax_exempt_status
+        description: Status of the account's tax exemption.
       - name: total_invoice_balance
+        description: Total balance of the account's invoices.
+      - name: updated_date
+        description: "{{ doc('updated_date') }} the account."
+      - name: updated_by_id
+        description: "{{ doc('updated_by_id') }} the account." 
+
+
+  - name: stg_zuora__accounting_code
+    description: Grabs balance line items by accounting values to help aggregate Zuora transaction data.
+    columns:
+      - name: accounting_code_id
+        description: "{{ doc('id') }}" accounting code table.
+      - name: category
+        description: The accounting category associated with the table.
+        tests:
+          - accepted_values:
+              values: ['Assets', 'Liabilities', 'Equity', 'Revenue', 'Expenses']
+      - name: created_by_id
+        description: "{{ doc('created_by_id') }} the accounting code."
+      - name: created_date
+        description: "{{ doc('created_at') }} the accounting code."
+      - name: glaccount_name
+        description: The account name in general ledger (GL) that corresponds to each accounting code.
+      - name: glaccount_number
+        description: The account number in the GL that corresponds to each accounting code.
+      - name: name
+        description: Name of the accounting code.
+      - name: notes
+        description: Any note about the accounting code.
+      - name: status
+        description: The accounting code status.
+        tests:
+          - accepted_values: 
+              values: ['Active', 'inactive']
+      - name: type 
+        description: The accounting code type.
+        tests:
+          - accepted_values: 
+              values: ['AccountsReceivable', 'Cash', 'OtherAssets', 'CustomerCashOnAccount', 'DeferredRevenue', 'SalesTaxPayable', 'OtherLiabilities', 'SalesRevenue', 'SalesDiscounts', 'OtherRevenue', 'OtherEquity', 'BadDebt', 'OtherExpense']
+      - name: updated_by_id
+        description: "{{ doc('updated_by_id') }} the accounting code."
+      - name: updated_date
+        description: "{{ doc('updated_date') }} the accounting code."
+
+  - name: stg_zuora__amendment
+    description: "{{ doc('amendment_table') }}"  
+    columns:
+      - name: amendment_id
+        description: "{{ doc('id') }} amendment table."
+          - name: auto_renew
+            description: Determines whether the subscription is automatically renewed, or whether it expires at the end of the term and needs to be manually renewed.
+          - name: booking_date
+            description: The date when the amendment is signed.
+          - name: code
+            description: A unique alphanumeric string that identifies the amendment.
+          - name: contract_effective_date
+            description: The date when the amendment's changes become effective for billing purposes.
+          - name: created_by_id
+            description: "{{ doc('created_by_id') }} the amendment."
+          - name: created_date
+            description: "{{ doc('created_at') }} the amendment."
+          - name: current_term
+            description: The length of the period for the current subscription term. 
+          - name: current_term_period_type
+            description: The period type for the current subscription term.
+            tests:
+            - accepted_values:
+                values: ['Month', 'Year', 'Day', 'Week']
+          - name: customer_acceptance_date
+            description: The date when the customer accepts the amendment's changes to the subscription.
+          - name: description
+            description: A description of the amendment.
+          - name: effective_date
+            description: The date when the amendment's changes take effective. This field validates that the amendment's changes are within valid ranges of products and product rate plans.
+          - name: name
+            description: The name of the amendment.
+          - name: renewal_setting
+            description: Specifies whether a termed subscription will remain termed or change to evergreen when it is renewed.
+          - name: renewal_term
+            description: The term of renewal for the amended subscription.
+          - name: renewal_term_period_type
+            description: The period type for the subscription renewal term.
+            tests:
+            - accepted_values:
+                values: ['Month', 'Year', 'Day', 'Week']
+          - name: resume_date
+            description: The date when the subscription resumption takes effect.
+          - name: service_activation_date
+            description: The date when service is activated.
+          - name: specific_update_date
+            description: The date when the UpdateProduct amendment takes effect.
+          - name: status
+            description: The status of the amendment.
+            tests:
+            - accepted_values:
+              values: ['Draft', 'Pending Activation', 'Pending Acceptance', 'Completed']
+          - name: subscription_id
+            description: The id of the subscription that the amendment changes.
+          - name: suspend_date
+            description: The date when the subscription suspension takes effect.
+          - name: term_start_date
+            description: The date when the new terms and conditions take effect.
+          - name: term_type
+            description: Indicates if the subscription is TERMED (expiration date, must be manually renewed), EVERGREEN (doesn't have expiration date, must be manually ended).
+          - name: type
+            description: The type of amendment.
+            tests:
+            - accepted_values:
+                values: ['Cancellation', 'NewProduct', 'OwnerTransfer', 'RemoveProduct', 'Renewal', 'UpdateProduct', 'TermsAndConditions', 'SuspendSubscription', 'ResumeSubscription']
+          - name: updated_by_id
+            description: "{{ doc('updated_by_id') }} the amendment."
+          - name: updated_date
+            description: "{{ doc('updated_at') }} the amendment."
 
   - name: stg_zuora__contact
     description: sample
@@ -53,4 +199,3 @@ models:
       - name: sku
       - name: updated_by_id
       - name: updated_date 
- 

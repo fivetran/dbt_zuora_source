@@ -35,8 +35,7 @@ final as (
         creator_account_id,
         creator_invoice_owner_id,
         current_term,
-        current_term_period_type,
-        custom_date_field_c,
+        current_term_period_type, 
         default_payment_method_id,
         externally_managed_by,
         id,
@@ -72,11 +71,11 @@ final as (
         subscription_version_amendment_id,
         term_end_date,
         term_start_date,
-        term_type,
-        testcustomaakash_c,
+        term_type, 
         updated_by_id,
         updated_date,
         version
+        {{ fivetran_utils.fill_pass_through_columns('zuora_subscription_pass_through_columns') }}
     from fields
 )
 

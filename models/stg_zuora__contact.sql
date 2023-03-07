@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select  
+        id as contact_id,
         _fivetran_deleted,
         _fivetran_synced,
         account_id,
@@ -34,7 +35,6 @@ final as (
         fax,
         first_name,
         home_phone,
-        id,
         last_name,
         mobile_phone,
         nick_name,

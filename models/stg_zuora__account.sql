@@ -20,8 +20,7 @@ fields as (
 final as (
     
     select 
-        _fivetran_deleted,
-        _fivetran_synced,
+        id as account_id,
         account_number,
         additional_email_addresses,
         allow_invoice_edit,
@@ -40,7 +39,7 @@ final as (
         currency,
         customer_service_rep_name,
         default_payment_method_id,
-        id,
+
         invoice_delivery_prefs_email,
         invoice_delivery_prefs_print,
         invoice_template_id,
@@ -66,9 +65,7 @@ final as (
         tax_exempt_entity_use_code,
         tax_exempt_expiration_date,
         tax_exempt_issuing_jurisdiction,
-        tax_exempt_status,
-        testcustom_1_c,
-        testcustom_2_c,
+        tax_exempt_status, 
         total_debit_memo_balance,
         total_invoice_balance,
         unapplied_balance,
@@ -76,6 +73,7 @@ final as (
         updated_by_id,
         updated_date,
         vatid
+        {{ fivetran_utils.fill_pass_through_columns('zuora_account_pass_through_columns') }}
     from fields
 )
 

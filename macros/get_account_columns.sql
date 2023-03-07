@@ -47,9 +47,7 @@
     {"name": "tax_exempt_entity_use_code", "datatype": dbt.type_string()},
     {"name": "tax_exempt_expiration_date", "datatype": dbt.type_timestamp()},
     {"name": "tax_exempt_issuing_jurisdiction", "datatype": dbt.type_string()},
-    {"name": "tax_exempt_status", "datatype": dbt.type_string()},
-    {"name": "testcustom_1_c", "datatype": dbt.type_string()},
-    {"name": "testcustom_2_c", "datatype": dbt.type_string()},
+    {"name": "tax_exempt_status", "datatype": dbt.type_string()}, 
     {"name": "total_debit_memo_balance", "datatype": dbt.type_float()},
     {"name": "total_invoice_balance", "datatype": dbt.type_float()},
     {"name": "unapplied_balance", "datatype": dbt.type_float()},
@@ -58,6 +56,8 @@
     {"name": "updated_date", "datatype": dbt.type_timestamp()},
     {"name": "vatid", "datatype": dbt.type_string()}
 ] %}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('zuora_account_pass_through_columns')) }}
 
 {{ return(columns) }}
 

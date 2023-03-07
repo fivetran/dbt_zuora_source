@@ -6,11 +6,25 @@ require-dbt-version: [">=1.3.0", "<2.0.0"]
 vars:
   zuora_source:
     account: "{{ source('zuora', 'account') }}"
+    accounting_code: "{{ source('zuora', 'accounting_code') }}"
+    amendment: "{{ source('zuora', 'amendment') }}"
     contact: "{{ source('zuora', 'contact') }}"
+    credit_balance_adjustment: "{{ source('zuora', 'credit_balance_adjustment') }}"
     invoice: "{{ source('zuora', 'invoice') }}"
+    journal_entry_item: "{{ source('zuora', 'journal_entry_item') }}"
+    journal_entry: "{{ source('zuora', 'journal_entry') }}"
     order: "{{ source('zuora', 'order') }}"
+    order_item: "{{ source('zuora', 'order_item') }}"
+    payment: "{{ source('zuora', 'payment') }}"
+    payment_method: "{{ source('zuora', 'payment_method') }}"
     product: "{{ source('zuora', 'product') }}"
+    product_rate_plan: "{{ source('zuora', 'product_rate_plan') }}"
+    product_rate_plan_charge: "{{ source('zuora', 'product_rate_plan_charge') }}"
+    rate_plan: "{{ source('zuora', 'rate_plan') }}"
+    rate_plan_charge: "{{ source('zuora', 'rate_plan_charge') }}"
+    refund: "{{ source('zuora', 'refund') }}"
     subscription: "{{ source('zuora', 'subscription') }}"
+    taxation_item: "{{ source('zuora', 'taxation_item') }}"
 
   zuora_account_pass_through_columns: []
   zuora_subscription_pass_through_columns: []

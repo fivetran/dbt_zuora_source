@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as accounting_code_id,
         _fivetran_deleted,
         _fivetran_synced,
         category,
@@ -27,7 +28,6 @@ final as (
         created_date,
         glaccount_name,
         glaccount_number,
-        id,
         name,
         notes,
         status,

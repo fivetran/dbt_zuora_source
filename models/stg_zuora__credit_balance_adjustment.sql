@@ -20,11 +20,7 @@ fields as (
 final as (
     
     select 
-[0m01:02:54  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
-There are 1 unused configuration paths:
-- models.development.example
-
-[0m01:02:57          _fivetran_deleted,
+        _fivetran_deleted,
         _fivetran_synced,
         account_id,
         account_receivable_accounting_code_id,

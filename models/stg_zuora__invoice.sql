@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as invoice_id,
         _fivetran_deleted,
         _fivetran_synced,
         account_id,
@@ -43,7 +44,6 @@ final as (
         exchange_rate,
         exchange_rate_date,
         home_currency,
-        id,
         includes_one_time,
         includes_recurring,
         includes_usage,

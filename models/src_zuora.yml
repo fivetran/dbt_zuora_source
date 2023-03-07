@@ -14,78 +14,300 @@ sources:
     tables:
       - name: account
         identifier: "{{ var('zuora_account_identifier', 'account')}}"
-        description: fill in
+        description: "{{ doc('account_table') }}"  
         columns:
-          - name: account_id
+          - name: id
+            description: "{{ doc('id') }} account table."
           - name: account_number
+            description: Unique account number assigned to the account. 
           - name: auto_pay
+            description: Indicates if future payments are automatically collected when they're due during a Payment Run.
+          - name: balance
+            description: Current outstanding balance for the account. Can be calculated by (Total Invoice Balance – Total Credit Balance)
+          - name: bill_cycle_day	
+            description: Day on which bill runs generate invoices for the account.
           - name: bill_to_contact_id
+            description: "{{ doc('bill_to_contact_id') }}" 
           - name: created_date
+            description: "{{ doc('created_at') }} the account."
           - name: created_by_id
+            description: "{{ doc('created_by_id') }} the account."
+          - name: credit_balance
+            description: Total credit balance for the account.
+          - name: crm_id
+            description: CRM account ID, used in Salesforce integration.
           - name: currency
+            description: "{{ doc('currency') }}" 
           - name: default_payment_method_id
+            description: "{{ doc('default_payment_method_id') }}"
           - name: last_invoice_date
-          - name: invoice_template_id
+            description: The date when the previous invoice was generated for the account. The field value is null if no invoice has ever been generated for the account.
           - name: mrr
-          - name: account_name
-          - name: parent_account_id
-          - name: payment_term
+            description: The amount of predictable revenue expected to be received on a monthly basis.
+          - name: name
+            description: Account name as displayed in Zuora.
+          - name: notes
+            description: Comments about the account.
+          - name: parent_account_id 
+            description: Identifier of the parent customer account for this account. Use this field if you have customer hierarchy enabled.
+          - name: payment_gateway
+            description: Gateway used for processing electronic payments and refunds.
+          - name: payment_term 
+            description: Indicates when the customer pays for subscriptions.
           - name: sold_to_contact_id
-          - name: account_status
+            description: "{{ doc('sold_to_contact_id') }}" 
+          - name: status
+            description: Status of the account in the system.
+          - name: tax_exempt_effective_date
+            description: Date when the customer's tax exemption starts.
+          - name: tax_exempt_expiration_date
+            description: Date when the customer's tax exemption certificate expires.
+          - name: tax_exempt_status
+            description: Status of the account's tax exemption.
           - name: total_invoice_balance
+            description: Total balance of the account's invoices.
+          - name: updated_date
+            description: "{{ doc('updated_date') }} the account."
+          - name: updated_by_id
+            description: "{{ doc('updated_by_id') }} the account." 
+
+      - name: accounting_code
+        identifier: "{{ var('zuora_accounting_code_identifier', 'accounting_code')}}"
+        description: "{{ doc('accounting_code_table') }}" 
+        columns: 
+          - name: id
+            description: "{{ doc('id') }}" accounting code table.
+          - name: category
+            description: The accounting category associated with the table.
+            tests:
+            - accepted_values:
+                values: ['Assets', 'Liabilities', 'Equity', 'Revenue', 'Expenses']
+          - name: created_by_id
+            description: "{{ doc('created_by_id') }} the accounting code."
+          - name: created_date
+            description: "{{ doc('created_at') }} the accounting code."
+          - name: glaccount_name
+            description: The account name in general ledger (GL) that corresponds to each accounting code.
+          - name: glaccount_number
+            description: The account number in the GL that corresponds to each accounting code.
+          - name: name
+            description: Name of the accounting code.
+          - name: notes
+            description: Any note about the accounting code.
+          - name: status
+            description: The accounting code status.
+            tests:
+            - accepted_values: ['Active', 'inactive']
+          - name: type 
+            description: The accounting code type.
+          - name: updated_by_id
+            description: "{{ doc('updated_by_id') }} the accounting code."
+          - name: updated_date
+            description: "{{ doc('updated_date') }} the accounting code."
+
+      - name: amendment
+        identifier: "{{ var('zuora_amendment_identifier', 'amendment')}}"
+        description: "{{ doc('amendment_table') }}"  
+        columns: 
+          - name: id
+            description: "{{ doc('id') }} amendment table."
+          - name: auto_renew
+            description: Determines whether the subscription is automatically renewed, or whether it expires at the end of the term and needs to be manually renewed.
+          - name: booking_date
+            description: The date when the amendment is signed.
+          - name: code
+            description: A unique alphanumeric string that identifies the amendment.
+          - name: contract_effective_date
+            description: The date when the amendment's changes become effective for billing purposes.
+          - name: created_by_id
+            description: "{{ doc('created_by_id') }} the amendment."
+          - name: created_date
+            description: "{{ doc('created_at') }} the amendment."
+          - name: current_term
+            description: The length of the period for the current subscription term. 
+          - name: current_term_period_type
+            description: The period type for the current subscription term.
+            tests:
+            - accepted_values:
+                values: ['Month', 'Year', 'Day', 'Week']
+          - name: customer_acceptance_date
+            description: The date when the customer accepts the amendment's changes to the subscription.
+          - name: description
+            description: A description of the amendment.
+          - name: effective_date
+            description: The date when the amendment's changes take effective. This field validates that the amendment's changes are within valid ranges of products and product rate plans.
+          - name: name
+            description: The name of the amendment.
+          - name: renewal_setting
+            description: Specifies whether a termed subscription will remain termed or change to evergreen when it is renewed.
+          - name: renewal_term
+            description: The term of renewal for the amended subscription.
+          - name: renewal_term_period_type
+            description: The period type for the subscription renewal term.
+            tests:
+            - accepted_values:
+                values: ['Month', 'Year', 'Day', 'Week']
+          - name: resume_date
+            description: The date when the subscription resumption takes effect.
+          - name: service_activation_date
+            description: The date when service is activated.
+          - name: specific_update_date
+            description: The date when the UpdateProduct amendment takes effect.
+          - name: status
+            description: The status of the amendment.
+            tests:
+            - accepted_values:
+                values: ['Draft', 'Pending Activation', 'Pending Acceptance', 'Completed']
+          - name: subscription_id
+            description: The id of the subscription that the amendment changes.
+          - name: suspend_date
+            description: The date when the subscription suspension takes effect.
+          - name: term_start_date
+            description: The date when the new terms and conditions take effect.
+          - name: term_type
+            description: Indicates if the subscription is TERMED (expiration date, must be manually renewed), EVERGREEN (doesn't have expiration date, must be manually ended).
+          - name: type
+            description: The type of amendment.
+            tests:
+            - accepted_values:
+                values: ['Cancellation', 'NewProduct', 'OwnerTransfer', 'RemoveProduct', 'Renewal', 'UpdateProduct', 'TermsAndConditions', 'SuspendSubscription', 'ResumeSubscription']
+          - name: updated_by_id
+            description: "{{ doc('updated_by_id') }} the amendment."
+          - name: updated_date
+            description: "{{ doc('updated_at') }} the amendment."
 
       - name: contact
         identifier: "{{ var('zuora_contact_identifier', 'contact')}}"
-        description: fill in
-        columns:
-          - name: contact_id 
-          - name: account_id
-          - name: address_1
-          - name: address_2
-          - name: city
-          - name: created_date
-          - name: country
-          - name: first_name
-          - name: last_name
-          - name: postal_code
-          - name: state
-          - name: updated_date
-          - name: work_email
-    
-      - name: product
-        identifier: "{{ var('zuora_product_identifier', 'product')}}"
-        description: fill in 
+        description: Customer who holds an account or who is otherwise a person to contact about an account. 
         columns:
           - name: id 
-          - name: allow_feature_changes
-          - name: created_by_id 
+            description: "{{ doc('id') }} contact table."
+          - name: account_id
+            description: The Zuora account id associated with this contact.
+          - name: address_1
+            description: The first line of the contact's address, which is often a street address or business name.
+          - name: address_2
+            description: The second line of the contact's address.
+          - name: city
+            description: The city of the contact's address.
+          - name: created_by_id
+            description: "{{ doc('created_by_id') }} the contact."
           - name: created_date
-          - name: category
-          - name: description 
-          - name: effective_end_date
-          - name: effective_start_date
-          - name: name
-          - name: sku
+            description: "{{ doc('created_at') }} the contact."
+          - name: country
+            description: The country of the contact's address.
+          - name: description
+            description: A description for the contact.
+          - name: first_name
+            description: The contact's first name.
+          - name: last_name
+            description: The contact's last name.
+          - name: postal_code
+            description: The zip code for the contact's address.  
           - name: updated_by_id
+            description: "{{ doc('updated_by_id') }} the contact."
           - name: updated_date 
+            description: "{{ doc('updated_at') }} the contact."
+          - name: work_email
+            description: The contact's business email address.
+
+      - name: credit_balance_adjustment
+        identifier: "{{ var('zuora_credit_balance_adjustment_identifier', 'credit_balance_adjustment')}}"
+        description: fill in
+        columns:
+          - name: id
+            description: "{{ doc('id') }} credit balance adjustment table."
+          - name: account_id
+            description: The account id of the credit balance's account. Zuora generates this value from the source transaction.
+          - name: account_receivable_accounting_code_id
+          - name: accounting_code
+            description: The accounting code for the credit balance adjustment, maps to a bank account in the accounting system.
+          - name: adjustment_date
+            description: The date when the credit balance adjustment is applied.
+          - name: amount
+            description: The amount of the credit balance adjustment.
+          - name: amount_currency_rounding
+          - name: amount_home_currency
+          - name: bill_to_contact_id
+            description: "{{ doc('bill_to_contact_id') }}" 
+          - name: cancelled_on
+            description: Date when the credit balance adjustment was canceled.
+          - name: comment
+            description: Comments about the credit balance adjustment.
+          - name: created_by_id
+            description: "{{ doc('created_by_id') }} the credit balance adjustment."
+          - name: created_date
+            description: "{{ doc('created_at') }} the credit balance adjustment." 
+          - name: default_payment_method_id
+            description: "{{ doc('default_payment_method_id') }}"  
+          - name: exchange_rate
+          - name: exchange_rate_date
+          - name: home_currency
+            description: "{{ doc('home_currency') }}"  
+          - name: invoice_id
+          - name: journal_entry_id
+          - name: journal_run_id
+          - name: number
+            description: A unique identifier for the credit balance adjustment.
+          - name: parent_account_id
+          - name: provider_exchange_rate_date
+          - name: reason_code
+          - name: reference_id
+          - name: sold_to_contact_id
+            description: "{{ doc('sold_to_contact_id') }}" 
+          - name: source_transaction_id
+            description: The ID of the object that the credit balance adjustment is applied to. 
+          - name: source_transaction_number
+            description: The number of the object that the credit balance adjustment is applied to. 
+          - name: source_transaction_type
+            description: The source of the credit balance adjustment.
+          - name: status
+            description: The status of the credit balance adjustment. 
+          - name: transaction_currency
+            description: "{{ doc('transaction_currency') }}" 
+          - name: transferred_to_accounting
+            description: Indicates the status of the credit balance adjustment's transfer to an external accounting system, such as Netsuite.
+            tests:
+            - accepted_values:
+                values: ['Processing', 'Yes', 'Error', 'Ignore']
+          - name: type
+            description: Specifies if the credit balance adjustment increases or decrease the amount of the credit balance.
+            tests:
+            - accepted_values:
+                values: ['Increase', 'Decrease']
+          - name: updated_by_id
+            description: "{{ doc('updated_by_id') }} the credit balance adjustment."
+          - name: updated_date
+            description: "{{ doc('updated_at') }} the credit balance adjustment."
 
       - name: invoice
         identifier: "{{ var('zuora_invoice_identifier', 'invoice')}}"
         description: fill in 
         columns:
           - name: id 
+            description: "{{ doc('id') }} invoice table."
           - name: account_id
+            description: The account identifier associated with the invoice.
           - name: adjustment_amount 
+            description: The amount of the invoice adjustments associated with the invoice. 
           - name: amount
+            description: The sum of all charges and taxes associated with the invoice.
           - name: amount_currency_rounding
           - name: amount_home_currency 
+          - name: amount_without_tax
+            description: The sum of all charges associated with the invoice. Taxes are excluded from this value.
           - name: amount_without_tax_home_currency
           - name: auto_pay
+            description: Whether invoices are automatically picked up for processing in the corresponding payment run. 
           - name: balance
+            description: The remaining balance of the invoice after all payments, adjustments, and refunds are applied.
           - name: bill_to_contact_id
+            description: "{{ doc('bill_to_contact_id') }}"
           - name: created_by_id
+            description: "{{ doc('created_by_id') }} the invoice."
           - name: created_date 
           - name: default_payment_method_id
+            description: "{{ doc('default_payment_method_id') }}"
           - name: due_date
           - name: exchange_rate
           - name: exchange_rate_date
@@ -94,11 +316,114 @@ sources:
           - name: invoice_number
           - name: payment_amount
           - name: sold_to_contact_id
+            description: "{{ doc('sold_to_contact_id') }}" 
           - name: source_id
+            description: The identfier of the value in the source field.
           - name: source_type
+            description: The type of the invoice source.
           - name: transaction_currency
           - name: updated_by_id
           - name: updated_date 
+
+      - name: invoice_item
+        identifier: "{{ var('zuora_invoice_item_identifier', 'invoice_item')}}"
+        description: fill in 
+        columns:
+          - name: invoice_item_id 
+          - name: account_id
+          - name: account_receivable_accounting_code_id
+          - name: accounting_code
+          - name: accounting_period_id
+          - name: amendment_id
+          - name: applied_to_invoice_item_id
+          - name: balance
+          - name: bill_to_contact_id
+          - name: booking_reference
+          - name: charge_amount
+          - name: charge_amount_currency_rounding
+          - name: charge_amount_home_currency
+          - name: charge_date
+          - name: charge_name
+          - name: created_by_id
+          - name: created_date
+          - name: default_payment_method_id
+          - name: deferred_revenue_accounting_code_id
+          - name: exchange_rate
+          - name: exchange_rate_date
+          - name: exclude_item_billing_from_revenue_accounting
+          - name: home_currency
+          - name: invoice_id
+          - name: journal_entry_id
+          - name: journal_run_id
+          - name: parent_account_id
+          - name: processing_type
+          - name: product_id
+          - name: product_rate_plan_charge_id
+          - name: product_rate_plan_id
+          - name: provider_exchange_rate_date
+          - name: quantity
+          - name: rate_plan_charge_id
+          - name: rate_plan_id
+          - name: recognized_revenue_accounting_code_id
+          - name: rev_rec_start_date
+          - name: service_end_date
+          - name: service_start_date
+          - name: sku
+          - name: sold_to_contact_id
+          - name: source_item_type
+          - name: subscription_id
+          - name: tax_amount
+          - name: tax_code
+          - name: tax_exempt_amount
+          - name: tax_mode
+          - name: transaction_currency
+          - name: unit_price
+          - name: uom
+          - name: updated_by_id
+          - name: updated_date
+
+      - name: journal_entry_item
+        identifier: "{{ var('zuora_journal_entry_item_identifier', 'journal_entry_item')}}"
+        description: fill in 
+        columns:
+          - name: accounting_code_id
+          - name: accounting_period_id
+          - name: amount
+          - name: amount_home_currency
+          - name: created_by_id
+          - name: created_date
+          - name: currency
+          - name: home_currency
+          - name: id
+          - name: journal_entry_id
+          - name: journal_run_id
+          - name: type
+          - name: updated_by_id
+          - name: updated_date
+
+      - name: journal_entry
+        identifier: "{{ var('zuora_journal_entry_identifier', 'journal_entry')}}"
+        description: fill in 
+        columns:
+          - name: accounting_period_id
+          - name: created_by_id
+          - name: created_date
+          - name: currency
+          - name: home_currency
+          - name: id
+          - name: journal_entry_date
+          - name: journal_run_id
+          - name: notes
+          - name: number
+          - name: product_s
+          - name: status
+          - name: transaction_count
+          - name: transaction_type
+          - name: transfer_date
+          - name: transferred_by
+          - name: transferred_to_accounting
+          - name: updated_by_id
+          - name: updated_date
 
       - name: order
         identifier: "{{ var('zuora_order_identifier', 'order')}}"
@@ -119,6 +444,449 @@ sources:
           - name: state
           - name: status 
           - name: updated_date    
+
+      - name: order_item
+        identifier: "{{ var('zuora_order_item_identifier', 'order_item')}}"
+        description: fill in 
+        columns:
+          - name: amendment_id
+          - name: created_by_id
+          - name: created_date
+          - name: end_date
+          - name: id
+          - name: order_action_id
+          - name: order_id
+          - name: product_id
+          - name: product_rate_plan_charge_id
+          - name: product_rate_plan_id
+          - name: quantity
+          - name: rate_plan_charge_id
+          - name: rate_plan_id
+          - name: start_date
+          - name: subscription_id
+          - name: updated_by_id
+          - name: updated_date
+
+      - name: payment
+        identifier: "{{ var('zuora_payment_identifier', 'payment')}}"
+        description: fill in 
+        columns:
+          - name: account_id
+          - name: accounting_code
+          - name: amount
+          - name: amount_currency_rounding
+          - name: amount_home_currency
+          - name: applied_amount
+          - name: applied_credit_balance_amount
+          - name: auth_transaction_id
+          - name: bank_identification_number
+          - name: bill_to_contact_id
+          - name: cancelled_on
+          - name: comment
+          - name: created_by_id
+          - name: created_date
+          - name: currency
+          - name: default_payment_method_id
+          - name: effective_date
+          - name: exchange_rate
+          - name: exchange_rate_date
+          - name: gateway
+          - name: gateway_order_id
+          - name: gateway_reconciliation_reason
+          - name: gateway_reconciliation_status
+          - name: gateway_response
+          - name: gateway_response_code
+          - name: gateway_state
+          - name: home_currency
+          - name: id
+          - name: is_standalone
+          - name: marked_for_submission_on
+          - name: parent_account_id
+          - name: payment_method_id
+          - name: payment_number
+          - name: payout_id
+          - name: provider_exchange_rate_date
+          - name: reference_id
+          - name: referenced_payment_id
+          - name: refund_amount
+          - name: second_payment_reference_id
+          - name: settled_on
+          - name: soft_descriptor
+          - name: soft_descriptor_phone
+          - name: sold_to_contact_id
+          - name: source
+          - name: source_name
+          - name: status
+          - name: submitted_on
+          - name: transaction_currency
+          - name: transferred_to_accounting
+          - name: type
+          - name: unapplied_amount
+          - name: updated_by_id
+          - name: updated_date
+
+      - name: payment_method
+        identifier: "{{ var('zuora_payment_method_identifier', 'payment_method')}}"
+        description: fill in 
+        columns:
+          - name: account_id
+          - name: ach_aba_code
+          - name: ach_account_name
+          - name: ach_account_number_mask
+          - name: ach_account_type
+          - name: ach_address_1
+          - name: ach_address_2
+          - name: ach_bank_name
+          - name: ach_city
+          - name: ach_country
+          - name: ach_postal_code
+          - name: ach_state
+          - name: active
+          - name: bank_branch_code
+          - name: bank_check_digit
+          - name: bank_city
+          - name: bank_code
+          - name: bank_identification_number
+          - name: bank_name
+          - name: bank_postal_code
+          - name: bank_street_name
+          - name: bank_street_number
+          - name: bank_transfer_account_name
+          - name: bank_transfer_account_number_mask
+          - name: bank_transfer_account_type
+          - name: bank_transfer_type
+          - name: business_identification_code
+          - name: city
+          - name: company_name
+          - name: country
+          - name: created_by_id
+          - name: created_date
+          - name: credit_card_address_1
+          - name: credit_card_address_2
+          - name: credit_card_city
+          - name: credit_card_country
+          - name: credit_card_expiration_month
+          - name: credit_card_expiration_year
+          - name: credit_card_holder_name
+          - name: credit_card_mask_number
+          - name: credit_card_postal_code
+          - name: credit_card_state
+          - name: credit_card_type
+          - name: device_session_id
+          - name: email
+          - name: existing_mandate
+          - name: first_name
+          - name: iban
+          - name: id
+          - name: identity_number
+          - name: ipaddress
+          - name: is_company
+          - name: last_failed_sale_transaction_date
+          - name: last_name
+          - name: last_transaction_date_time
+          - name: last_transaction_status
+          - name: mandate_creation_date
+          - name: mandate_id
+          - name: mandate_reason
+          - name: mandate_received
+          - name: mandate_status
+          - name: mandate_update_date
+          - name: max_consecutive_payment_failures
+          - name: method_reference_id
+          - name: method_specific_data
+          - name: name
+          - name: num_consecutive_failures
+          - name: payment_method_status
+          - name: payment_retry_window
+          - name: paypal_baid
+          - name: paypal_email
+          - name: paypal_preapproval_key
+          - name: paypal_type
+          - name: phone
+          - name: postal_code
+          - name: second_token_id
+          - name: state
+          - name: street_name
+          - name: street_number
+          - name: sub_type
+          - name: token_id
+          - name: total_number_of_error_payments
+          - name: total_number_of_processed_payments
+          - name: type
+          - name: updated_by_id
+          - name: updated_date
+          - name: use_default_retry_rule
+          - name: user_reference_id
+
+      - name: product
+        identifier: "{{ var('zuora_product_identifier', 'product')}}"
+        description: fill in 
+        columns:
+          - name: id 
+          - name: allow_feature_changes
+          - name: created_by_id 
+          - name: created_date
+          - name: category
+          - name: description 
+          - name: effective_end_date
+          - name: effective_start_date
+          - name: name
+          - name: sku
+          - name: updated_by_id
+          - name: updated_date
+
+      - name: product_rate_plan
+        identifier: "{{ var('zuora_product_rate_plan_identifier', 'product_rate_plan')}}"
+        description: fill in 
+        columns:
+          - name: created_by_id
+          - name: created_date
+          - name: description
+          - name: effective_end_date
+          - name: effective_start_date
+          - name: external_id_source_system
+          - name: id
+          - name: name
+          - name: product_id
+          - name: promotion_code_c
+          - name: updated_by_id
+          - name: updated_date
+
+      - name: product_rate_plan_charge
+        identifier: "{{ var('zuora_product_rate_plan_charge_identifier', 'product_rate_plan_charge')}}"
+        description: fill in 
+        columns:
+          - name: account_receivable_accounting_code_id
+          - name: accounting_code
+          - name: apply_discount_to
+          - name: bill_cycle_day
+          - name: bill_cycle_type
+          - name: billing_period
+          - name: billing_period_alignment
+          - name: billing_timing
+          - name: charge_model
+          - name: charge_type
+          - name: created_by_id
+          - name: created_date
+          - name: default_quantity
+          - name: deferred_revenue_account
+          - name: deferred_revenue_accounting_code_id
+          - name: description
+          - name: discount_class_id
+          - name: discount_level
+          - name: end_date_condition
+          - name: exclude_item_billing_from_revenue_accounting
+          - name: exclude_item_booking_from_revenue_accounting
+          - name: id
+          - name: included_units
+          - name: is_stacked_discount
+          - name: legacy_revenue_reporting
+          - name: list_price_base
+          - name: max_quantity
+          - name: min_quantity
+          - name: name
+          - name: number_of_period
+          - name: overage_calculation_option
+          - name: overage_unused_units_credit_option
+          - name: price_change_option
+          - name: price_increase_percentage
+          - name: price_upsell_quantity_stacked
+          - name: product_id
+          - name: product_rate_plan_id
+          - name: rating_group
+          - name: recognized_revenue_account
+          - name: recognized_revenue_accounting_code_id
+          - name: rev_rec_code
+          - name: rev_rec_trigger_condition
+          - name: revenue_recognition_rule_name
+          - name: smoothing_model
+          - name: specific_billing_period
+          - name: specific_list_price_base
+          - name: tax_code
+          - name: tax_mode
+          - name: taxable
+          - name: trigger_event
+          - name: uom
+          - name: up_to_periods
+          - name: up_to_periods_type
+          - name: updated_by_id
+          - name: updated_date
+          - name: usage_record_rating_option
+          - name: use_discount_specific_accounting_code
+          - name: use_tenant_default_for_price_change
+          - name: weekly_bill_cycle_day
+
+      - name: rate_plan
+        identifier: "{{ var('zuora_rate_plan_identifier', 'rate_plan')}}"
+        description: fill in 
+        columns:
+          - name: account_id
+          - name: amendment_id
+          - name: amendment_type
+          - name: bill_to_contact_id
+          - name: created_by_id
+          - name: created_date
+          - name: default_payment_method_id
+          - name: externally_managed_plan_id
+          - name: id
+          - name: invoice_owner_id
+          - name: name
+          - name: original_rate_plan_id
+          - name: parent_account_id
+          - name: product_id
+          - name: product_rate_plan_id
+          - name: sold_to_contact_id
+          - name: subscription_id
+          - name: subscription_owner_id
+          - name: subscription_version_amendment_id
+          - name: updated_by_id
+          - name: updated_date
+
+      - name: rate_plan_charge
+        identifier: "{{ var('zuora_rate_plan_charge_identifier', 'rate_plan_charge')}}"
+        description: fill in 
+        columns:
+          - name: account_id
+          - name: account_receivable_accounting_code_id
+          - name: accounting_code
+          - name: amended_by_order_on
+          - name: amendment_id
+          - name: apply_discount_to
+          - name: bill_cycle_day
+          - name: bill_cycle_type
+          - name: bill_to_contact_id
+          - name: bill_to_contact_snapshot_id
+          - name: billing_period
+          - name: billing_period_alignment
+          - name: billing_timing
+          - name: booking_exchange_rate
+          - name: booking_exchange_rate_date
+          - name: booking_provider_exchange_rate_date
+          - name: charge_model
+          - name: charge_number
+          - name: charge_type
+          - name: charged_through_date
+          - name: created_by_id
+          - name: created_date
+          - name: credit_option
+          - name: default_payment_method_id
+          - name: deferred_revenue_accounting_code_id
+          - name: description
+          - name: discount_level
+          - name: dmrc
+          - name: dmrccurrency_rounding
+          - name: dmrchome_currency
+          - name: drawdown_rate
+          - name: drawdown_uom
+          - name: dtcv
+          - name: dtcvcurrency_rounding
+          - name: dtcvhome_currency
+          - name: effective_end_date
+          - name: effective_start_date
+          - name: end_date_condition
+          - name: exchange_rate
+          - name: exchange_rate_date
+          - name: exclude_item_billing_from_revenue_accounting
+          - name: exclude_item_booking_from_revenue_accounting
+          - name: home_currency
+          - name: id
+          - name: invoice_owner_id
+          - name: is_last_segment
+          - name: is_prepaid
+          - name: is_processed
+          - name: is_rollover
+          - name: list_price_base
+          - name: mrr
+          - name: mrrcurrency_rounding
+          - name: mrrhome_currency
+          - name: name
+          - name: number_of_periods
+          - name: original_id
+          - name: original_order_date
+          - name: overage_calculation_option
+          - name: overage_unused_units_credit_option
+          - name: parent_account_id
+          - name: payment_term_snapshot
+          - name: prepaid_operation_type
+          - name: prepaid_quantity
+          - name: prepaid_total_quantity
+          - name: prepaid_uom
+          - name: price_change_option
+          - name: price_increase_percentage
+          - name: processed_through_date
+          - name: product_id
+          - name: product_rate_plan_charge_id
+          - name: product_rate_plan_id
+          - name: provider_exchange_rate_date
+          - name: quantity
+          - name: rate_plan_id
+          - name: rating_group
+          - name: recognized_revenue_accounting_code_id
+          - name: rev_rec_code
+          - name: rev_rec_trigger_condition
+          - name: revenue_recognition_rule_name
+          - name: rollover_apply
+          - name: rollover_periods
+          - name: segment
+          - name: sold_to_contact_id
+          - name: sold_to_contact_snapshot_id
+          - name: specific_billing_period
+          - name: specific_end_date
+          - name: specific_list_price_base
+          - name: subscription_id
+          - name: subscription_owner_id
+          - name: tcv
+          - name: tcvcurrency_rounding
+          - name: tcvhome_currency
+          - name: transaction_currency
+          - name: trigger_date
+          - name: trigger_event
+          - name: uom
+          - name: up_to_periods
+          - name: up_to_periods_type
+          - name: updated_by_id
+          - name: updated_date
+          - name: validity_period_type
+          - name: version
+          - name: weekly_bill_cycle_day
+
+      - name: refund
+        identifier: "{{ var('zuora_refund_identifier', 'refund')}}"
+        description: fill in 
+        columns:
+          - name: accounting_code
+          - name: amount
+          - name: cancelled_on
+          - name: comment
+          - name: created_by_id
+          - name: created_date
+          - name: gateway
+          - name: gateway_reconciliation_reason
+          - name: gateway_reconciliation_status
+          - name: gateway_response
+          - name: gateway_response_code
+          - name: gateway_state
+          - name: id
+          - name: marked_for_submission_on
+          - name: method_type
+          - name: payment_method_id
+          - name: payout_id
+          - name: reason_code
+          - name: reference_id
+          - name: refund_date
+          - name: refund_number
+          - name: refund_transaction_time
+          - name: second_refund_reference_id
+          - name: settled_on
+          - name: soft_descriptor
+          - name: soft_descriptor_phone
+          - name: source_type
+          - name: status
+          - name: submitted_on
+          - name: transferred_to_accounting
+          - name: type
+          - name: updated_by_id
+          - name: updated_date
 
       - name: subscription
         identifier: "{{ var('zuora_subscription_identifier', 'subscription')}}"
@@ -162,3 +930,62 @@ sources:
           - name: version
           - name: is_latest_version
           - name: cancel_reason
+
+      - name: taxation_item
+        identifier: "{{ var('zuora_taxation_item_identifier', 'taxation_item')}}"
+        description: fill in 
+        columns:
+          - name: account_id
+          - name: account_receivable_accounting_code_id
+          - name: accounting_code
+          - name: accounting_period_id
+          - name: amendment_id
+          - name: balance
+          - name: bill_to_contact_id
+          - name: created_by_id
+          - name: created_date
+          - name: credit_amount
+          - name: customer_code
+          - name: default_payment_method_id
+          - name: exchange_rate
+          - name: exchange_rate_date
+          - name: exempt_amount
+          - name: exempt_amount_currency_rounding
+          - name: exempt_amount_home_currency
+          - name: exempt_certificate
+          - name: home_currency
+          - name: id
+          - name: invoice_id
+          - name: invoice_item_id
+          - name: journal_entry_id
+          - name: journal_run_id
+          - name: jurisdiction
+          - name: location_code
+          - name: name
+          - name: parent_account_id
+          - name: payment_amount
+          - name: product_id
+          - name: product_rate_plan_charge_id
+          - name: product_rate_plan_id
+          - name: provider_exchange_rate_date
+          - name: rate_plan_charge_id
+          - name: rate_plan_id
+          - name: sales_tax_payable_accounting_code_id
+          - name: seller_registration
+          - name: sold_to_contact_id
+          - name: subscription_id
+          - name: tax_amount
+          - name: tax_amount_currency_rounding
+          - name: tax_amount_home_currency
+          - name: tax_code
+          - name: tax_code_description
+          - name: tax_date
+          - name: tax_description
+          - name: tax_mode
+          - name: tax_rate
+          - name: tax_rate_description
+          - name: tax_rate_type
+          - name: tax_rule_id
+          - name: transaction_currency
+          - name: updated_by_id
+          - name: updated_date

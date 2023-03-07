@@ -20,11 +20,8 @@ fields as (
 final as (
     
     select 
-[0m01:16:26  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
-There are 1 unused configuration paths:
-- models.development.example
-
-[0m01:16:29          _fivetran_deleted,
+        id as amendment_id,
+        _fivetran_deleted,
         _fivetran_synced,
         auto_renew,
         booking_date,
@@ -38,7 +35,6 @@ There are 1 unused configuration paths:
         description,
         effective_date,
         effective_policy,
-        id,
         name,
         new_rate_plan_id,
         removed_rate_plan_id,

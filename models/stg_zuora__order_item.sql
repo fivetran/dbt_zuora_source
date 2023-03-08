@@ -20,13 +20,13 @@ fields as (
 final as (
     
     select 
+        id as order_item_id,
         _fivetran_deleted,
         _fivetran_synced,
         amendment_id,
         created_by_id,
         created_date,
         end_date,
-        id,
         order_action_id,
         order_id,
         product_id,

@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as product_rate_plan_id,
         _fivetran_deleted,
         _fivetran_synced,
         created_by_id,
@@ -28,7 +29,6 @@ final as (
         effective_end_date,
         effective_start_date,
         external_id_source_system,
-        id,
         name,
         product_id,
         promotion_code_c,

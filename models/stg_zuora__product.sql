@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as product_id,
         _fivetran_deleted,
         _fivetran_synced,
         allow_feature_changes,
@@ -29,7 +30,6 @@ final as (
         description,
         effective_end_date,
         effective_start_date,
-        id,
         name,
         sku,
         updated_by_id,

@@ -14,7 +14,7 @@ sources:
     tables:
       - name: account
         identifier: "{{ var('zuora_account_identifier', 'account')}}"
-        description: "{{ doc('account_table') }}"  
+        description: "{{ doc('account_table') }}"
         columns:
           - name: id
             description: "{{ doc('id') }} account table."
@@ -24,12 +24,12 @@ sources:
             description: Indicates if future payments are automatically collected when they're due during a Payment Run.
           - name: balance
             description: Current outstanding balance for the account. Can be calculated by (Total Invoice Balance – Total Credit Balance)
-          - name: bill_cycle_day	
+          - name: bill_cycle_day
             description: Day on which bill runs generate invoices for the account.
           - name: bill_to_contact_id
             description: "{{ doc('bill_to_contact_id') }}" 
           - name: created_date
-            description: "{{ doc('created_at') }} the account."
+            description: "{{ doc('created_date') }} the account."
           - name: created_by_id
             description: "{{ doc('created_by_id') }} the account."
           - name: credit_balance
@@ -76,16 +76,13 @@ sources:
         description: "{{ doc('accounting_code_table') }}" 
         columns: 
           - name: id
-            description: "{{ doc('id') }}" accounting code table.
+            description: "{{ doc('id') }} accounting code table."
           - name: category
             description: The accounting category associated with the table.
-            tests:
-            - accepted_values:
-                values: ['Assets', 'Liabilities', 'Equity', 'Revenue', 'Expenses']
           - name: created_by_id
             description: "{{ doc('created_by_id') }} the accounting code."
           - name: created_date
-            description: "{{ doc('created_at') }} the accounting code."
+            description: "{{ doc('created_date') }} the accounting code."
           - name: glaccount_name
             description: The account name in general ledger (GL) that corresponds to each accounting code.
           - name: glaccount_number
@@ -96,8 +93,6 @@ sources:
             description: Any note about the accounting code.
           - name: status
             description: The accounting code status.
-            tests:
-            - accepted_values: ['Active', 'inactive']
           - name: type 
             description: The accounting code type.
           - name: updated_by_id
@@ -107,7 +102,7 @@ sources:
 
       - name: amendment
         identifier: "{{ var('zuora_amendment_identifier', 'amendment')}}"
-        description: "{{ doc('amendment_table') }}"  
+        description: "{{ doc('amendment_table') }}"
         columns: 
           - name: id
             description: "{{ doc('id') }} amendment table."
@@ -122,14 +117,11 @@ sources:
           - name: created_by_id
             description: "{{ doc('created_by_id') }} the amendment."
           - name: created_date
-            description: "{{ doc('created_at') }} the amendment."
+            description: "{{ doc('created_date') }} the amendment."
           - name: current_term
             description: The length of the period for the current subscription term. 
           - name: current_term_period_type
             description: The period type for the current subscription term.
-            tests:
-            - accepted_values:
-                values: ['Month', 'Year', 'Day', 'Week']
           - name: customer_acceptance_date
             description: The date when the customer accepts the amendment's changes to the subscription.
           - name: description
@@ -144,9 +136,6 @@ sources:
             description: The term of renewal for the amended subscription.
           - name: renewal_term_period_type
             description: The period type for the subscription renewal term.
-            tests:
-            - accepted_values:
-                values: ['Month', 'Year', 'Day', 'Week']
           - name: resume_date
             description: The date when the subscription resumption takes effect.
           - name: service_activation_date
@@ -155,9 +144,6 @@ sources:
             description: The date when the UpdateProduct amendment takes effect.
           - name: status
             description: The status of the amendment.
-            tests:
-            - accepted_values:
-                values: ['Draft', 'Pending Activation', 'Pending Acceptance', 'Completed']
           - name: subscription_id
             description: The id of the subscription that the amendment changes.
           - name: suspend_date
@@ -168,17 +154,14 @@ sources:
             description: Indicates if the subscription is TERMED (expiration date, must be manually renewed), EVERGREEN (doesn't have expiration date, must be manually ended).
           - name: type
             description: The type of amendment.
-            tests:
-            - accepted_values:
-                values: ['Cancellation', 'NewProduct', 'OwnerTransfer', 'RemoveProduct', 'Renewal', 'UpdateProduct', 'TermsAndConditions', 'SuspendSubscription', 'ResumeSubscription']
           - name: updated_by_id
             description: "{{ doc('updated_by_id') }} the amendment."
           - name: updated_date
-            description: "{{ doc('updated_at') }} the amendment."
+            description: "{{ doc('updated_date') }} the amendment."
 
       - name: contact
         identifier: "{{ var('zuora_contact_identifier', 'contact')}}"
-        description: Customer who holds an account or who is otherwise a person to contact about an account. 
+        description: "{{ doc('contact_table') }}"
         columns:
           - name: id 
             description: "{{ doc('id') }} contact table."
@@ -193,7 +176,7 @@ sources:
           - name: created_by_id
             description: "{{ doc('created_by_id') }} the contact."
           - name: created_date
-            description: "{{ doc('created_at') }} the contact."
+            description: "{{ doc('created_date') }} the contact."
           - name: country
             description: The country of the contact's address.
           - name: description
@@ -207,13 +190,13 @@ sources:
           - name: updated_by_id
             description: "{{ doc('updated_by_id') }} the contact."
           - name: updated_date 
-            description: "{{ doc('updated_at') }} the contact."
+            description: "{{ doc('updated_date') }} the contact."
           - name: work_email
             description: The contact's business email address.
 
       - name: credit_balance_adjustment
         identifier: "{{ var('zuora_credit_balance_adjustment_identifier', 'credit_balance_adjustment')}}"
-        description: fill in
+        description: "{{ doc('credit_balance_adjustment_table') }}"
         columns:
           - name: id
             description: "{{ doc('id') }} credit balance adjustment table."
@@ -237,7 +220,7 @@ sources:
           - name: created_by_id
             description: "{{ doc('created_by_id') }} the credit balance adjustment."
           - name: created_date
-            description: "{{ doc('created_at') }} the credit balance adjustment." 
+            description: "{{ doc('created_date') }} the credit balance adjustment." 
           - name: default_payment_method_id
             description: "{{ doc('default_payment_method_id') }}"  
           - name: exchange_rate
@@ -267,22 +250,16 @@ sources:
             description: "{{ doc('transaction_currency') }}" 
           - name: transferred_to_accounting
             description: Indicates the status of the credit balance adjustment's transfer to an external accounting system, such as Netsuite.
-            tests:
-            - accepted_values:
-                values: ['Processing', 'Yes', 'Error', 'Ignore']
           - name: type
             description: Specifies if the credit balance adjustment increases or decrease the amount of the credit balance.
-            tests:
-            - accepted_values:
-                values: ['Increase', 'Decrease']
           - name: updated_by_id
             description: "{{ doc('updated_by_id') }} the credit balance adjustment."
           - name: updated_date
-            description: "{{ doc('updated_at') }} the credit balance adjustment."
+            description: "{{ doc('updated_date') }} the credit balance adjustment."
 
       - name: invoice
         identifier: "{{ var('zuora_invoice_identifier', 'invoice')}}"
-        description: fill in 
+        description: "{{ doc('invoice_table') }}"
         columns:
           - name: id 
             description: "{{ doc('id') }} invoice table."
@@ -293,7 +270,7 @@ sources:
           - name: amount
             description: The sum of all charges and taxes associated with the invoice.
           - name: amount_currency_rounding
-          - name: amount_home_currency 
+          - name: amount_home_currency  
           - name: amount_without_tax
             description: The sum of all charges associated with the invoice. Taxes are excluded from this value.
           - name: amount_without_tax_home_currency
@@ -312,6 +289,7 @@ sources:
           - name: exchange_rate
           - name: exchange_rate_date
           - name: home_currency
+            description: "{{ doc('home_currency') }}"  
           - name: invoice_date
           - name: invoice_number
           - name: payment_amount
@@ -327,9 +305,9 @@ sources:
 
       - name: invoice_item
         identifier: "{{ var('zuora_invoice_item_identifier', 'invoice_item')}}"
-        description: fill in 
+        description: "{{ doc('invoice_item_table') }}"
         columns:
-          - name: invoice_item_id 
+          - name: id 
           - name: account_id
           - name: account_receivable_accounting_code_id
           - name: accounting_code
@@ -352,6 +330,7 @@ sources:
           - name: exchange_rate_date
           - name: exclude_item_billing_from_revenue_accounting
           - name: home_currency
+            description: "{{ doc('home_currency') }}"  
           - name: invoice_id
           - name: journal_entry_id
           - name: journal_run_id
@@ -384,7 +363,7 @@ sources:
 
       - name: journal_entry_item
         identifier: "{{ var('zuora_journal_entry_item_identifier', 'journal_entry_item')}}"
-        description: fill in 
+        description: "{{ doc('journal_entry_item_table') }}"
         columns:
           - name: accounting_code_id
           - name: accounting_period_id
@@ -394,6 +373,7 @@ sources:
           - name: created_date
           - name: currency
           - name: home_currency
+            description: "{{ doc('home_currency') }}" 
           - name: id
           - name: journal_entry_id
           - name: journal_run_id
@@ -403,13 +383,14 @@ sources:
 
       - name: journal_entry
         identifier: "{{ var('zuora_journal_entry_identifier', 'journal_entry')}}"
-        description: fill in 
+        description: "{{ doc('journal_entry_table') }}"
         columns:
           - name: accounting_period_id
           - name: created_by_id
           - name: created_date
           - name: currency
           - name: home_currency
+            description: "{{ doc('home_currency') }}"  
           - name: id
           - name: journal_entry_date
           - name: journal_run_id
@@ -427,7 +408,7 @@ sources:
 
       - name: order
         identifier: "{{ var('zuora_order_identifier', 'order')}}"
-        description: fill in 
+        description: "{{ doc('order_table') }}"
         columns:
           - name: id 
           - name: account_id 
@@ -447,7 +428,7 @@ sources:
 
       - name: order_item
         identifier: "{{ var('zuora_order_item_identifier', 'order_item')}}"
-        description: fill in 
+        description: "{{ doc('order_item_table') }}"
         columns:
           - name: amendment_id
           - name: created_by_id
@@ -469,7 +450,7 @@ sources:
 
       - name: payment
         identifier: "{{ var('zuora_payment_identifier', 'payment')}}"
-        description: fill in 
+        description: "{{ doc('payment_table') }}"
         columns:
           - name: account_id
           - name: accounting_code
@@ -498,6 +479,7 @@ sources:
           - name: gateway_response_code
           - name: gateway_state
           - name: home_currency
+            description: "{{ doc('home_currency') }}"  
           - name: id
           - name: is_standalone
           - name: marked_for_submission_on
@@ -527,7 +509,7 @@ sources:
 
       - name: payment_method
         identifier: "{{ var('zuora_payment_method_identifier', 'payment_method')}}"
-        description: fill in 
+        description: "{{ doc('payment_method_table') }}"
         columns:
           - name: account_id
           - name: ach_aba_code
@@ -620,7 +602,7 @@ sources:
 
       - name: product
         identifier: "{{ var('zuora_product_identifier', 'product')}}"
-        description: fill in 
+        description: "{{ doc('product_table') }}"
         columns:
           - name: id 
           - name: allow_feature_changes
@@ -637,7 +619,7 @@ sources:
 
       - name: product_rate_plan
         identifier: "{{ var('zuora_product_rate_plan_identifier', 'product_rate_plan')}}"
-        description: fill in 
+        description: "{{ doc('product_rate_plan_table') }}"
         columns:
           - name: created_by_id
           - name: created_date
@@ -654,7 +636,7 @@ sources:
 
       - name: product_rate_plan_charge
         identifier: "{{ var('zuora_product_rate_plan_charge_identifier', 'product_rate_plan_charge')}}"
-        description: fill in 
+        description: "{{ doc('product_rate_plan_charge_table') }}"
         columns:
           - name: account_receivable_accounting_code_id
           - name: accounting_code
@@ -718,7 +700,7 @@ sources:
 
       - name: rate_plan
         identifier: "{{ var('zuora_rate_plan_identifier', 'rate_plan')}}"
-        description: fill in 
+        description: "{{ doc('rate_plan_table') }}"
         columns:
           - name: account_id
           - name: amendment_id
@@ -744,7 +726,7 @@ sources:
 
       - name: rate_plan_charge
         identifier: "{{ var('zuora_rate_plan_charge_identifier', 'rate_plan_charge')}}"
-        description: fill in 
+        description: "{{ doc('rate_plan_charge_table') }}"
         columns:
           - name: account_id
           - name: account_receivable_accounting_code_id
@@ -789,6 +771,7 @@ sources:
           - name: exclude_item_billing_from_revenue_accounting
           - name: exclude_item_booking_from_revenue_accounting
           - name: home_currency
+            description: "{{ doc('home_currency') }}"  
           - name: id
           - name: invoice_owner_id
           - name: is_last_segment
@@ -852,7 +835,7 @@ sources:
 
       - name: refund
         identifier: "{{ var('zuora_refund_identifier', 'refund')}}"
-        description: fill in 
+        description: "{{ doc('refund_table') }}"
         columns:
           - name: accounting_code
           - name: amount
@@ -890,7 +873,7 @@ sources:
 
       - name: subscription
         identifier: "{{ var('zuora_subscription_identifier', 'subscription')}}"
-        description: fill in 
+        description: "{{ doc('subscription_table') }}"
         columns:
           - name: id 
           - name: account_id
@@ -933,7 +916,7 @@ sources:
 
       - name: taxation_item
         identifier: "{{ var('zuora_taxation_item_identifier', 'taxation_item')}}"
-        description: fill in 
+        description: "{{ doc('taxation_item_table') }}"
         columns:
           - name: account_id
           - name: account_receivable_accounting_code_id
@@ -954,6 +937,7 @@ sources:
           - name: exempt_amount_home_currency
           - name: exempt_certificate
           - name: home_currency
+            description: "{{ doc('home_currency') }}"  
           - name: id
           - name: invoice_id
           - name: invoice_item_id

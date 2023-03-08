@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select  
+        id as taxation_item_id,
         _fivetran_deleted,
         _fivetran_synced,
         account_id,
@@ -41,7 +42,6 @@ final as (
         exempt_amount_home_currency,
         exempt_certificate,
         home_currency,
-        id,
         invoice_id,
         invoice_item_id,
         journal_entry_id,

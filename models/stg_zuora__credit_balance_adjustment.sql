@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as credit_balance_adjustment_id,
         _fivetran_deleted,
         _fivetran_synced,
         account_id,
@@ -40,7 +41,7 @@ final as (
         exchange_rate,
         exchange_rate_date,
         home_currency,
-        id,
+
         invoice_id,
         journal_entry_id,
         journal_run_id,

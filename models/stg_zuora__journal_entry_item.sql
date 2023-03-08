@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as journal_entry_item_id,
         _fivetran_deleted,
         _fivetran_synced,
         accounting_code_id,
@@ -30,7 +31,6 @@ final as (
         created_date,
         currency,
         home_currency,
-        id,
         journal_entry_id,
         journal_run_id,
         type,

@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as rate_plan_charge_id,
         _fivetran_deleted,
         _fivetran_synced,
         account_id,
@@ -65,7 +66,6 @@ final as (
         exclude_item_billing_from_revenue_accounting,
         exclude_item_booking_from_revenue_accounting,
         home_currency,
-        id,
         invoice_owner_id,
         is_last_segment,
         is_prepaid,

@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as refund_id,
         _fivetran_deleted,
         _fivetran_synced,
         accounting_code,
@@ -34,7 +35,6 @@ final as (
         gateway_response,
         gateway_response_code,
         gateway_state,
-        id,
         marked_for_submission_on,
         method_type,
         payment_method_id,

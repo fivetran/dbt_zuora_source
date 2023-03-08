@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as product_rate_plan_charge_id,
         _fivetran_deleted,
         _fivetran_synced,
         account_receivable_accounting_code_id,
@@ -43,7 +44,6 @@ final as (
         end_date_condition,
         exclude_item_billing_from_revenue_accounting,
         exclude_item_booking_from_revenue_accounting,
-        id,
         included_units,
         is_stacked_discount,
         legacy_revenue_reporting,

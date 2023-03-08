@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as rate_plan_id,
         _fivetran_deleted,
         _fivetran_synced,
         account_id,
@@ -30,7 +31,6 @@ final as (
         created_date,
         default_payment_method_id,
         externally_managed_plan_id,
-        id,
         invoice_owner_id,
         name,
         original_rate_plan_id,

@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as payment_id,
         _fivetran_deleted,
         _fivetran_synced,
         account_id,
@@ -49,7 +50,6 @@ final as (
         gateway_response_code,
         gateway_state,
         home_currency,
-        id,
         is_standalone,
         marked_for_submission_on,
         parent_account_id,

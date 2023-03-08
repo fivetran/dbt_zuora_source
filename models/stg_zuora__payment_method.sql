@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as payment_method_id,
         _fivetran_deleted,
         _fivetran_synced,
         account_id,
@@ -70,7 +71,6 @@ final as (
         existing_mandate,
         first_name,
         iban,
-        id,
         identity_number,
         ipaddress,
         is_company,

@@ -11,6 +11,7 @@ vars:
     contact: "{{ source('zuora', 'contact') }}"
     credit_balance_adjustment: "{{ source('zuora', 'credit_balance_adjustment') }}"
     invoice: "{{ source('zuora', 'invoice') }}"
+    invoice_item: "{{ source('zuora', 'invoice_item') }}"
     journal_entry_item: "{{ source('zuora', 'journal_entry_item') }}"
     journal_entry: "{{ source('zuora', 'journal_entry') }}"
     order: "{{ source('zuora', 'order') }}"

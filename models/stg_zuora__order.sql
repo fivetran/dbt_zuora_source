@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select 
+        id as order_id,
         _fivetran_deleted,
         _fivetran_synced,
         account_id,
@@ -32,7 +33,6 @@ final as (
         description,
         error_code,
         error_message,
-        id,
         order_date,
         order_number,
         parent_account_id,

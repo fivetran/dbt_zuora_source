@@ -20,6 +20,7 @@ fields as (
 final as (
     
     select  
+        id as subscription_id,
         _fivetran_deleted,
         _fivetran_synced,
         account_id,
@@ -38,7 +39,6 @@ final as (
         current_term_period_type, 
         default_payment_method_id,
         externally_managed_by,
-        id,
         initial_term,
         initial_term_period_type,
         invoice_owner_id,
@@ -75,6 +75,7 @@ final as (
         updated_by_id,
         updated_date,
         version
+
         {{ fivetran_utils.fill_pass_through_columns('zuora_subscription_pass_through_columns') }}
     from fields
 )

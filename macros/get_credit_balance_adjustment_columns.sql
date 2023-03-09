@@ -3,6 +3,7 @@
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "account_id", "datatype": dbt.type_string()},
+    {"name": "account_receivable_accounting_code_id", "datatype": dbt.type_string()},
     {"name": "accounting_code", "datatype": dbt.type_string()},
     {"name": "adjustment_date", "datatype": "date"},
     {"name": "amount", "datatype": dbt.type_float()}, 

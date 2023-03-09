@@ -22,7 +22,6 @@
     {"name": "journal_entry_id", "datatype": dbt.type_string()},
     {"name": "journal_run_id", "datatype": dbt.type_string()}, 
     {"name": "name", "datatype": dbt.type_string()},
-    {"name": "parent_account_id", "datatype": dbt.type_string()},
     {"name": "payment_amount", "datatype": dbt.type_float()},
     {"name": "product_id", "datatype": dbt.type_string()},
     {"name": "product_rate_plan_charge_id", "datatype": dbt.type_string()},

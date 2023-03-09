@@ -41,8 +41,6 @@
     {"name": "status", "datatype": dbt.type_string()},
     {"name": "target_date", "datatype": "date"},
     {"name": "tax_amount", "datatype": dbt.type_float()},
-    {"name": "tax_exempt_amount", "datatype": dbt.type_float()},
-    {"name": "tax_message", "datatype": dbt.type_string()},
     {"name": "tax_status", "datatype": dbt.type_string()},
     {"name": "template_id", "datatype": dbt.type_string()},
     {"name": "transaction_currency", "datatype": dbt.type_string()},

@@ -2,7 +2,6 @@
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
-    {"name": "allow_feature_changes", "datatype": "boolean"},
     {"name": "category", "datatype": dbt.type_string()},
     {"name": "created_by_id", "datatype": dbt.type_string()},
     {"name": "created_date", "datatype": dbt.type_timestamp()},

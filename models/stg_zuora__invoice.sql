@@ -59,8 +59,6 @@ final as (
         status,
         target_date,
         tax_amount,
-        tax_exempt_amount,
-        tax_message,
         tax_status, 
         transaction_currency,
         transferred_to_accounting,

@@ -40,8 +40,6 @@ final as (
         parent_account_id,
         payment_method_id,
         payment_number,
-        reference_id,
-        referenced_payment_id,
         refund_amount,
         settled_on, 
         sold_to_contact_id,

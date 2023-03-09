@@ -22,6 +22,7 @@ final as (
     select 
         id as credit_balance_adjustment_id,
         account_id,
+        account_receivable_accounting_code_id,
         accounting_code,
         adjustment_date,
         amount, 

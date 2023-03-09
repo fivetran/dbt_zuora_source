@@ -30,8 +30,6 @@ final as (
         contract_effective_date,
         created_by_id,
         created_date,
-        creator_account_id,
-        creator_invoice_owner_id,
         current_term,
         current_term_period_type, 
         default_payment_method_id,
@@ -49,10 +47,6 @@ final as (
         parent_account_id,
         payment_term,
         previous_subscription_id,
-        quote_business_type_qt,
-        quote_number_qt,
-        quote_type_qt,
-        renewal_setting,
         renewal_term,
         renewal_term_period_type,
         revision,
@@ -67,7 +61,6 @@ final as (
         updated_by_id,
         updated_date,
         version
-
         {{ fivetran_utils.fill_pass_through_columns('zuora_subscription_pass_through_columns') }}
     from fields
 )

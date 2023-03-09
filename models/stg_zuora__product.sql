@@ -21,7 +21,6 @@ final as (
     
     select 
         id as product_id,
-        allow_feature_changes,
         category,
         created_by_id,
         created_date,

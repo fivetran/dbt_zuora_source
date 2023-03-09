@@ -1,7 +1,6 @@
 {% macro get_order_item_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_deleted", "datatype": "boolean"},
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "amendment_id", "datatype": dbt.type_string()},
     {"name": "created_by_id", "datatype": dbt.type_string()},

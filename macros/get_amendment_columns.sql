@@ -5,7 +5,6 @@ There are 1 unused configuration paths:
 [0m01:16:48  {% macro get_amendment_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_deleted", "datatype": "boolean"},
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "auto_renew", "datatype": "boolean"},
     {"name": "booking_date", "datatype": "date"},
@@ -17,8 +16,7 @@ There are 1 unused configuration paths:
     {"name": "current_term_period_type", "datatype": dbt.type_string()},
     {"name": "customer_acceptance_date", "datatype": "date"},
     {"name": "description", "datatype": dbt.type_string()},
-    {"name": "effective_date", "datatype": "date"},
-    {"name": "effective_policy", "datatype": dbt.type_string()},
+    {"name": "effective_date", "datatype": "date"}, 
     {"name": "id", "datatype": dbt.type_string()},
     {"name": "name", "datatype": dbt.type_string()},
     {"name": "new_rate_plan_id", "datatype": dbt.type_string()},
@@ -29,8 +27,7 @@ There are 1 unused configuration paths:
     {"name": "resume_date", "datatype": "date"},
     {"name": "service_activation_date", "datatype": "date"},
     {"name": "specific_update_date", "datatype": "date"},
-    {"name": "status", "datatype": dbt.type_string()},
-    {"name": "sub_type", "datatype": dbt.type_string()},
+    {"name": "status", "datatype": dbt.type_string()}, 
     {"name": "subscription_id", "datatype": dbt.type_string()},
     {"name": "suspend_date", "datatype": "date"},
     {"name": "term_start_date", "datatype": "date"},

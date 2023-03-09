@@ -21,7 +21,6 @@ final as (
     
     select 
         id as accounting_code_id,
-        _fivetran_deleted,
         _fivetran_synced,
         category,
         created_by_id,

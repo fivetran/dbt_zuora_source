@@ -1,7 +1,6 @@
 {% macro get_order_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_deleted", "datatype": "boolean"},
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "account_id", "datatype": dbt.type_string()},
     {"name": "bill_to_contact_id", "datatype": dbt.type_string()},
@@ -18,8 +17,7 @@
     {"name": "order_number", "datatype": dbt.type_string()},
     {"name": "parent_account_id", "datatype": dbt.type_string()},
     {"name": "response", "datatype": dbt.type_string()},
-    {"name": "scheduled_date", "datatype": "date"},
-    {"name": "scheduled_date_policy", "datatype": dbt.type_string()},
+    {"name": "scheduled_date", "datatype": "date"}, 
     {"name": "sold_to_contact_id", "datatype": dbt.type_string()},
     {"name": "state", "datatype": dbt.type_string()},
     {"name": "status", "datatype": dbt.type_string()},

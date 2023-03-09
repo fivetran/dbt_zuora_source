@@ -21,8 +21,6 @@ final as (
     
     select 
         id as order_item_id,
-        _fivetran_deleted,
-        _fivetran_synced,
         amendment_id,
         created_by_id,
         created_date,

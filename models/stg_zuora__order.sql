@@ -21,8 +21,6 @@ final as (
     
     select 
         id as order_id,
-        _fivetran_deleted,
-        _fivetran_synced,
         account_id,
         bill_to_contact_id,
         category,
@@ -37,8 +35,7 @@ final as (
         order_number,
         parent_account_id,
         response,
-        scheduled_date,
-        scheduled_date_policy,
+        scheduled_date, 
         sold_to_contact_id,
         state,
         status,

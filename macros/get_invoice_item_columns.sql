@@ -1,19 +1,15 @@
 {% macro get_invoice_item_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_deleted", "datatype": "boolean"},
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "account_id", "datatype": dbt.type_string()},
     {"name": "account_receivable_accounting_code_id", "datatype": dbt.type_string()},
-    {"name": "accounting_code", "datatype": dbt.type_string()},
-    {"name": "accounting_period_id", "datatype": dbt.type_string()},
+    {"name": "accounting_code", "datatype": dbt.type_string()}, 
     {"name": "amendment_id", "datatype": dbt.type_string()},
     {"name": "applied_to_invoice_item_id", "datatype": dbt.type_string()},
     {"name": "balance", "datatype": dbt.type_float()},
-    {"name": "bill_to_contact_id", "datatype": dbt.type_string()},
-    {"name": "booking_reference", "datatype": dbt.type_string()},
-    {"name": "charge_amount", "datatype": dbt.type_float()},
-    {"name": "charge_amount_currency_rounding", "datatype": dbt.type_float()},
+    {"name": "bill_to_contact_id", "datatype": dbt.type_string()}, 
+    {"name": "charge_amount", "datatype": dbt.type_float()}, 
     {"name": "charge_amount_home_currency", "datatype": dbt.type_float()},
     {"name": "charge_date", "datatype": dbt.type_timestamp()},
     {"name": "charge_name", "datatype": dbt.type_string()},

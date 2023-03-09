@@ -21,28 +21,21 @@ final as (
     
     select 
         id as rate_plan_id,
-        _fivetran_deleted,
-        _fivetran_synced,
         account_id,
         amendment_id,
-        amendment_type,
         bill_to_contact_id,
         created_by_id,
         created_date,
-        default_payment_method_id,
-        externally_managed_plan_id,
-        invoice_owner_id,
+        default_payment_method_id,  
         name,
-        original_rate_plan_id,
-        parent_account_id,
+        original_rate_plan_id, 
         product_id,
         product_rate_plan_id,
         sold_to_contact_id,
-        subscription_id,
-        subscription_owner_id,
-        subscription_version_amendment_id,
+        subscription_id, 
         updated_by_id,
         updated_date
+        {{ fivetran_utils.fill_pass_through_columns('zuora_rate_plan_pass_through_columns') }}
     from fields
 )
 

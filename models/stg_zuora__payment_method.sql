@@ -21,8 +21,6 @@ final as (
     
     select 
         id as payment_method_id,
-        _fivetran_deleted,
-        _fivetran_synced,
         account_id,
         ach_aba_code,
         ach_account_name,

@@ -21,17 +21,13 @@ final as (
     
     select 
         id as product_rate_plan_id,
-        _fivetran_deleted,
-        _fivetran_synced,
         created_by_id,
         created_date,
         description,
         effective_end_date,
-        effective_start_date,
-        external_id_source_system,
+        effective_start_date, 
         name,
-        product_id,
-        promotion_code_c,
+        product_id, 
         updated_by_id,
         updated_date
     from fields

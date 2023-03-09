@@ -1,15 +1,11 @@
 {% macro get_credit_balance_adjustment_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_deleted", "datatype": "boolean"},
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "account_id", "datatype": dbt.type_string()},
-    {"name": "account_receivable_accounting_code_id", "datatype": dbt.type_string()},
     {"name": "accounting_code", "datatype": dbt.type_string()},
-    {"name": "accounting_period_id", "datatype": dbt.type_string()},
     {"name": "adjustment_date", "datatype": "date"},
-    {"name": "amount", "datatype": dbt.type_float()},
-    {"name": "amount_currency_rounding", "datatype": dbt.type_float()},
+    {"name": "amount", "datatype": dbt.type_float()}, 
     {"name": "amount_home_currency", "datatype": dbt.type_float()},
     {"name": "bill_to_contact_id", "datatype": dbt.type_string()},
     {"name": "cancelled_on", "datatype": dbt.type_timestamp()},
@@ -24,10 +20,8 @@
     {"name": "id", "datatype": dbt.type_string()},
     {"name": "invoice_id", "datatype": dbt.type_string()},
     {"name": "journal_entry_id", "datatype": dbt.type_string()},
-    {"name": "journal_run_id", "datatype": dbt.type_string()},
     {"name": "number", "datatype": dbt.type_string()},
     {"name": "parent_account_id", "datatype": dbt.type_string()},
-    {"name": "provider_exchange_rate_date", "datatype": "date"},
     {"name": "reason_code", "datatype": dbt.type_string()},
     {"name": "reference_id", "datatype": dbt.type_string()},
     {"name": "sold_to_contact_id", "datatype": dbt.type_string()},

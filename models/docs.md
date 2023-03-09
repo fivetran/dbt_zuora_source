@@ -110,6 +110,10 @@ Identifier of the user who created
 Identifier of the default payment method for the account.
 {% enddocs %}
 
+{% docs _fivetran_synced %}
+Timestamp of when a record was last synced.
+{% enddocs %}
+
 {% docs home_currency %}
 Home currency the customer is billed in.
 {% enddocs %}

@@ -21,8 +21,6 @@ final as (
     
     select 
         id as amendment_id,
-        _fivetran_deleted,
-        _fivetran_synced,
         auto_renew,
         booking_date,
         code,
@@ -34,7 +32,6 @@ final as (
         customer_acceptance_date,
         description,
         effective_date,
-        effective_policy,
         name,
         new_rate_plan_id,
         removed_rate_plan_id,
@@ -45,7 +42,6 @@ final as (
         service_activation_date,
         specific_update_date,
         status,
-        sub_type,
         subscription_id,
         suspend_date,
         term_start_date,

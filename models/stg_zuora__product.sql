@@ -21,8 +21,6 @@ final as (
     
     select 
         id as product_id,
-        _fivetran_deleted,
-        _fivetran_synced,
         allow_feature_changes,
         category,
         created_by_id,

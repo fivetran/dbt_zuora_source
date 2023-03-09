@@ -18,6 +18,8 @@ sources:
         columns:
           - name: id
             description: "{{ doc('id') }} account table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: account_number
             description: Unique account number assigned to the account. 
           - name: auto_pay
@@ -77,6 +79,8 @@ sources:
         columns: 
           - name: id
             description: "{{ doc('id') }} accounting code table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: category
             description: The accounting category associated with the table.
           - name: created_by_id
@@ -106,6 +110,8 @@ sources:
         columns: 
           - name: id
             description: "{{ doc('id') }} amendment table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: auto_renew
             description: Determines whether the subscription is automatically renewed, or whether it expires at the end of the term and needs to be manually renewed.
           - name: booking_date
@@ -165,6 +171,8 @@ sources:
         columns:
           - name: id 
             description: "{{ doc('id') }} contact table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: account_id
             description: The Zuora account id associated with this contact.
           - name: address_1
@@ -200,6 +208,8 @@ sources:
         columns:
           - name: id
             description: "{{ doc('id') }} credit balance adjustment table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: account_id
             description: The account id of the credit balance's account. Zuora generates this value from the source transaction.
           - name: account_receivable_accounting_code_id
@@ -263,6 +273,8 @@ sources:
         columns:
           - name: id 
             description: "{{ doc('id') }} invoice table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: account_id
             description: The account identifier associated with the invoice.
           - name: adjustment_amount 
@@ -308,6 +320,8 @@ sources:
         description: "{{ doc('invoice_item_table') }}"
         columns:
           - name: id 
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: account_id
           - name: account_receivable_accounting_code_id
           - name: accounting_code
@@ -365,6 +379,9 @@ sources:
         identifier: "{{ var('zuora_journal_entry_item_identifier', 'journal_entry_item')}}"
         description: "{{ doc('journal_entry_item_table') }}"
         columns:
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'                    
           - name: accounting_code_id
           - name: accounting_period_id
           - name: amount
@@ -374,7 +391,7 @@ sources:
           - name: currency
           - name: home_currency
             description: "{{ doc('home_currency') }}" 
-          - name: id
+
           - name: journal_entry_id
           - name: journal_run_id
           - name: type
@@ -385,13 +402,15 @@ sources:
         identifier: "{{ var('zuora_journal_entry_identifier', 'journal_entry')}}"
         description: "{{ doc('journal_entry_table') }}"
         columns:
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'   
           - name: accounting_period_id
           - name: created_by_id
           - name: created_date
           - name: currency
           - name: home_currency
             description: "{{ doc('home_currency') }}"  
-          - name: id
           - name: journal_entry_date
           - name: journal_run_id
           - name: notes
@@ -410,7 +429,9 @@ sources:
         identifier: "{{ var('zuora_order_identifier', 'order')}}"
         description: "{{ doc('order_table') }}"
         columns:
-          - name: id 
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'   
           - name: account_id 
           - name: bill_to_contact_id
           - name: category
@@ -431,6 +452,8 @@ sources:
         description: "{{ doc('order_item_table') }}"
         columns:
           - name: amendment_id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'   
           - name: created_by_id
           - name: created_date
           - name: end_date
@@ -452,6 +475,9 @@ sources:
         identifier: "{{ var('zuora_payment_identifier', 'payment')}}"
         description: "{{ doc('payment_table') }}"
         columns:
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'   
           - name: account_id
           - name: accounting_code
           - name: amount
@@ -511,6 +537,9 @@ sources:
         identifier: "{{ var('zuora_payment_method_identifier', 'payment_method')}}"
         description: "{{ doc('payment_method_table') }}"
         columns:
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'   
           - name: account_id
           - name: ach_aba_code
           - name: ach_account_name
@@ -559,7 +588,6 @@ sources:
           - name: existing_mandate
           - name: first_name
           - name: iban
-          - name: id
           - name: identity_number
           - name: ipaddress
           - name: is_company
@@ -605,6 +633,8 @@ sources:
         description: "{{ doc('product_table') }}"
         columns:
           - name: id 
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'   
           - name: allow_feature_changes
           - name: created_by_id 
           - name: created_date
@@ -621,13 +651,15 @@ sources:
         identifier: "{{ var('zuora_product_rate_plan_identifier', 'product_rate_plan')}}"
         description: "{{ doc('product_rate_plan_table') }}"
         columns:
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'   
           - name: created_by_id
           - name: created_date
           - name: description
           - name: effective_end_date
           - name: effective_start_date
           - name: external_id_source_system
-          - name: id
           - name: name
           - name: product_id
           - name: promotion_code_c
@@ -638,6 +670,9 @@ sources:
         identifier: "{{ var('zuora_product_rate_plan_charge_identifier', 'product_rate_plan_charge')}}"
         description: "{{ doc('product_rate_plan_charge_table') }}"
         columns:
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'             
           - name: account_receivable_accounting_code_id
           - name: accounting_code
           - name: apply_discount_to
@@ -659,7 +694,6 @@ sources:
           - name: end_date_condition
           - name: exclude_item_billing_from_revenue_accounting
           - name: exclude_item_booking_from_revenue_accounting
-          - name: id
           - name: included_units
           - name: is_stacked_discount
           - name: legacy_revenue_reporting
@@ -702,6 +736,9 @@ sources:
         identifier: "{{ var('zuora_rate_plan_identifier', 'rate_plan')}}"
         description: "{{ doc('rate_plan_table') }}"
         columns:
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'   
           - name: account_id
           - name: amendment_id
           - name: amendment_type
@@ -709,8 +746,7 @@ sources:
           - name: created_by_id
           - name: created_date
           - name: default_payment_method_id
-          - name: externally_managed_plan_id
-          - name: id
+          - name: externally_managed_plan_id 
           - name: invoice_owner_id
           - name: name
           - name: original_rate_plan_id
@@ -728,6 +764,9 @@ sources:
         identifier: "{{ var('zuora_rate_plan_charge_identifier', 'rate_plan_charge')}}"
         description: "{{ doc('rate_plan_charge_table') }}"
         columns:
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'   
           - name: account_id
           - name: account_receivable_accounting_code_id
           - name: accounting_code
@@ -772,7 +811,6 @@ sources:
           - name: exclude_item_booking_from_revenue_accounting
           - name: home_currency
             description: "{{ doc('home_currency') }}"  
-          - name: id
           - name: invoice_owner_id
           - name: is_last_segment
           - name: is_prepaid
@@ -837,6 +875,9 @@ sources:
         identifier: "{{ var('zuora_refund_identifier', 'refund')}}"
         description: "{{ doc('refund_table') }}"
         columns:
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}' 
           - name: accounting_code
           - name: amount
           - name: cancelled_on
@@ -849,7 +890,6 @@ sources:
           - name: gateway_response
           - name: gateway_response_code
           - name: gateway_state
-          - name: id
           - name: marked_for_submission_on
           - name: method_type
           - name: payment_method_id
@@ -875,7 +915,9 @@ sources:
         identifier: "{{ var('zuora_subscription_identifier', 'subscription')}}"
         description: "{{ doc('subscription_table') }}"
         columns:
-          - name: id 
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}' 
           - name: account_id
           - name: auto_renew 
           - name: bill_to_contact_id
@@ -918,6 +960,9 @@ sources:
         identifier: "{{ var('zuora_taxation_item_identifier', 'taxation_item')}}"
         description: "{{ doc('taxation_item_table') }}"
         columns:
+          - name: id
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}' 
           - name: account_id
           - name: account_receivable_accounting_code_id
           - name: accounting_code
@@ -938,7 +983,6 @@ sources:
           - name: exempt_certificate
           - name: home_currency
             description: "{{ doc('home_currency') }}"  
-          - name: id
           - name: invoice_id
           - name: invoice_item_id
           - name: journal_entry_id

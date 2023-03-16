@@ -409,6 +409,39 @@ models:
       - name: updated_by_id
       - name: updated_date
 
+  - name: stg_zuora__invoice_payment
+    description: invoice payment details
+    columns:
+      - name: invoice_payment_id 
+        description: "{{ doc('id') }} invoice item table." 
+      - name: account_id
+      - name: account_receivable_accounting_code_id
+      - name: accounting_period_id
+      - name: amount
+      - name: amount_currency_rounding
+      - name: amount_home_currency
+      - name: bill_to_contact_id
+      - name: cash_accounting_code_id
+      - name: created_by_id
+      - name: created_date
+      - name: default_payment_method_id
+      - name: exchange_rate
+      - name: exchange_rate_date
+      - name: home_currency
+        description: default_payment_method_id
+      - name: invoice_id
+      - name: journal_entry_id
+      - name: journal_run_id
+      - name: parent_account_id
+      - name: payment_id
+      - name: payment_method_id
+      - name: provider_exchange_rate_date
+      - name: refund_amount
+      - name: sold_to_contact_id
+      - name: transaction_currency
+      - name: updated_by_id
+      - name: updated_date
+
   - name: stg_zuora__journal_entry
     description: "{{ doc('journal_entry_table') }}"
     columns:
@@ -476,7 +509,6 @@ models:
       - name: state
       - name: status 
       - name: updated_date    
-
 
   - name: stg_zuora__order_item
     description: "{{ doc('order_item_table') }}"
@@ -588,7 +620,6 @@ models:
       - name: sku
       - name: updated_by_id
       - name: updated_date
-
 
   - name: stg_zuora__product_rate_plan
     description: "{{ doc('product_rate_plan_table') }}"
@@ -752,7 +783,19 @@ models:
       - name: updated_date
       - name: version
       - name: weekly_bill_cycle_day
-
+  
+  - name: stg_zuora__refund_invoice_payment
+    description: refund invoice payment details
+    columns:
+      - name: refund_invoice_payment_id
+      - name: _fivetran_synced 
+        description: '{{ doc("_fivetran_synced") }}' 
+      - name: created_by_id
+      - name: created_date
+      - name: refund_amount 
+      - name: updated_by_id
+      - name: updated_date    
+  
   - name: stg_zuora__refund
     description: "{{ doc('refund_table') }}"
     columns:

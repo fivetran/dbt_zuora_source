@@ -12,6 +12,7 @@ vars:
     credit_balance_adjustment: "{{ source('zuora', 'credit_balance_adjustment') }}"
     invoice: "{{ source('zuora', 'invoice') }}"
     invoice_item: "{{ source('zuora', 'invoice_item') }}"
+    invoice_payment: "{{ source('zuora', 'invoice_payment') }}"
     journal_entry_item: "{{ source('zuora', 'journal_entry_item') }}"
     journal_entry: "{{ source('zuora', 'journal_entry') }}"
     order: "{{ source('zuora', 'order') }}"
@@ -24,6 +25,7 @@ vars:
     rate_plan: "{{ source('zuora', 'rate_plan') }}"
     rate_plan_charge: "{{ source('zuora', 'rate_plan_charge') }}"
     refund: "{{ source('zuora', 'refund') }}"
+    refund_invoice_payment: "{{ source('zuora', 'refund_invoice_payment') }}"
     subscription: "{{ source('zuora', 'subscription') }}"
     taxation_item: "{{ source('zuora', 'taxation_item') }}"
 

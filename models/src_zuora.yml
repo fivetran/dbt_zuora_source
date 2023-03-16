@@ -404,6 +404,42 @@ sources:
           - name: updated_by_id
           - name: updated_date
 
+      - name: invoice_payment
+        identifier: "{{ var('zuora_invoice_payment_identifier', 'invoice_payment')}}"
+        description: invoice payment details
+        columns:
+          - name: id 
+            description: "{{ doc('id') }} invoice item table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
+          - name: account_id
+          - name: account_receivable_accounting_code_id
+          - name: accounting_period_id
+          - name: amount
+          - name: amount_currency_rounding
+          - name: amount_home_currency
+          - name: bill_to_contact_id
+          - name: cash_accounting_code_id
+          - name: created_by_id
+          - name: created_date
+          - name: default_payment_method_id
+          - name: exchange_rate
+          - name: exchange_rate_date
+          - name: home_currency
+            description: "{{ doc('home_currency') }}"  
+          - name: invoice_id
+          - name: journal_entry_id
+          - name: journal_run_id
+          - name: parent_account_id
+          - name: payment_id
+          - name: payment_method_id
+          - name: provider_exchange_rate_date
+          - name: refund_amount
+          - name: sold_to_contact_id
+          - name: transaction_currency
+          - name: updated_by_id
+          - name: updated_date
+
       - name: journal_entry_item
         identifier: "{{ var('zuora_journal_entry_item_identifier', 'journal_entry_item')}}"
         description: "{{ doc('journal_entry_item_table') }}"
@@ -420,7 +456,6 @@ sources:
           - name: created_date
           - name: currency
           - name: home_currency
-            description: "{{ doc('home_currency') }}" 
           - name: journal_entry_id
           - name: type
           - name: updated_by_id
@@ -773,6 +808,19 @@ sources:
           - name: submitted_on
           - name: transferred_to_accounting
           - name: type
+          - name: updated_by_id
+          - name: updated_date
+
+      - name: refund_invoice_payment
+        identifier: "{{ var('zuora_refund_invoice_payment_identifier', 'refund_invoice_payment')}}"
+        description: refund invoice payment details
+        columns:
+          - name: id
+          - name: _fivetran_synced 
+            description: '{{ doc("_fivetran_synced") }}' 
+          - name: created_by_id
+          - name: created_date
+          - name: refund_amount 
           - name: updated_by_id
           - name: updated_date
 

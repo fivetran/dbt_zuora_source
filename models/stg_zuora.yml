@@ -74,9 +74,9 @@ models:
           - not_null
       - name: category
         description: The accounting category associated with the table.
-        tests:
-          - accepted_values:
-              values: ['Assets', 'Liabilities', 'Equity', 'Revenue', 'Expenses']
+        tests: 
+          - accepted_values: 
+              values: ['Assets', 'Liabilities', 'Equity', 'Revenue', 'Expenses'] 
       - name: created_by_id
         description: "{{ doc('created_by_id') }} the accounting code."
       - name: created_date

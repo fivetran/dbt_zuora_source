@@ -51,7 +51,9 @@ final as (
         updated_by_id,
         updated_date,
         vatid
+
         {{ fivetran_utils.fill_pass_through_columns('zuora_account_pass_through_columns') }}
+        
     from fields
 )
 

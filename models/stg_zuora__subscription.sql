@@ -61,7 +61,7 @@ final as (
         updated_by_id,
         updated_date,
         version
-        {{ fivetran_utils.fill_pass_through_columns('zuora_subscription_pass_through_columns') }}
+        {{ fivetran_utils.fill_pass_through_columns('zuora__subscription_pass_through_columns') }}
     from fields
 )
 

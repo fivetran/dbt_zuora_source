@@ -1,8 +1,4 @@
-[0m01:16:44  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
-There are 1 unused configuration paths:
-- models.development.example
-
-[0m01:16:48  {% macro get_amendment_columns() %}
+{% macro get_amendment_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},

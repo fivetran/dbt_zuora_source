@@ -35,7 +35,6 @@ final as (
         subscription_id, 
         updated_by_id,
         updated_date
-        {{ fivetran_utils.fill_pass_through_columns('zuora_rate_plan_pass_through_columns') }}
     from fields
 )
 

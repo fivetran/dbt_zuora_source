@@ -29,10 +29,8 @@ vars:
     subscription: "{{ source('zuora', 'subscription') }}"
     taxation_item: "{{ source('zuora', 'taxation_item') }}"
 
-  zuora_account_pass_through_columns: []
-  zuora_rate_plan_pass_through_columns: []
-  zuora_rate_plan_charge_pass_through_columns: []
-  zuora_subscription_pass_through_columns: []
+  zuora__account_pass_through_columns: []
+  zuora__subscription_pass_through_columns: []
   
 
 models:

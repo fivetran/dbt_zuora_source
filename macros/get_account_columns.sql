@@ -35,7 +35,7 @@
     {"name": "vatid", "datatype": dbt.type_string()}
 ] %}
 
-{{ fivetran_utils.add_pass_through_columns(columns, var('zuora_account_pass_through_columns')) }}
+{{ fivetran_utils.add_pass_through_columns(columns, var('zuora__account_pass_through_columns')) }}
 
 {{ return(columns) }}
 

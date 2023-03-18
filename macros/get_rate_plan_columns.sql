@@ -19,8 +19,6 @@
     {"name": "updated_date", "datatype": dbt.type_timestamp()}
 ] %}
 
-{{ fivetran_utils.add_pass_through_columns(columns, var('zuora_rate_plan_pass_through_columns')) }}
-
 {{ return(columns) }}
 
 {% endmacro %}

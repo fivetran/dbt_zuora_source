@@ -1,4 +1,4 @@
- {% macro get_subscription_columns() %}
+{% macro get_subscription_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
@@ -46,7 +46,7 @@
     {"name": "version", "datatype": dbt.type_int()}
 ] %}
 
-{{ fivetran_utils.add_pass_through_columns(columns, var('zuora_subscription_pass_through_columns')) }}
+{{ fivetran_utils.add_pass_through_columns(columns, var('zuora__subscription_pass_through_columns')) }}
 
 {{ return(columns) }}
 

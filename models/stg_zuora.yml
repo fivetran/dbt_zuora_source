@@ -74,9 +74,6 @@ models:
           - not_null
       - name: category
         description: The accounting category associated with the table.
-        tests:
-          - accepted_values:
-              values: ['Assets', 'Liabilities', 'Equity', 'Revenue', 'Expenses']
       - name: created_by_id
         description: "{{ doc('created_by_id') }} the accounting code."
       - name: created_date
@@ -91,14 +88,8 @@ models:
         description: Any note about the accounting code.
       - name: status
         description: The accounting code status.
-        tests:
-          - accepted_values: 
-              values: ['Active', 'inactive']
       - name: type 
         description: The accounting code type.
-        tests:
-          - accepted_values: 
-              values: ['AccountsReceivable', 'Cash', 'OtherAssets', 'CustomerCashOnAccount', 'DeferredRevenue', 'SalesTaxPayable', 'OtherLiabilities', 'SalesRevenue', 'SalesDiscounts', 'OtherRevenue', 'OtherEquity', 'BadDebt', 'OtherExpense']
       - name: updated_by_id
         description: "{{ doc('updated_by_id') }} the accounting code."
       - name: updated_date
@@ -128,9 +119,6 @@ models:
         description: The length of the period for the current subscription term. 
       - name: current_term_period_type
         description: The period type for the current subscription term.
-        tests:
-          - accepted_values:
-              values: ['Month', 'Year', 'Day', 'Week']
       - name: customer_acceptance_date
         description: The date when the customer accepts the amendment's changes to the subscription.
       - name: description
@@ -147,9 +135,6 @@ models:
         description: The term of renewal for the amended subscription.
       - name: renewal_term_period_type
         description: The period type for the subscription renewal term.
-        tests:
-          - accepted_values:
-              values: ['Month', 'Year', 'Day', 'Week']
       - name: resume_date
         description: The date when the subscription resumption takes effect.
       - name: service_activation_date

@@ -91,7 +91,6 @@ final as (
         updated_date, 
         version,
         weekly_bill_cycle_day
-        {{ fivetran_utils.fill_pass_through_columns('zuora_rate_plan_charge_pass_through_columns') }}
     from fields
 )
 

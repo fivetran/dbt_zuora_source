@@ -143,9 +143,6 @@ models:
         description: The date when the UpdateProduct amendment takes effect.
       - name: status
         description: The status of the amendment.
-        tests:
-          - accepted_values:
-              values: ['Draft', 'Pending Activation', 'Pending Acceptance', 'Completed']
       - name: subscription_id
         description: The id of the subscription that the amendment changes.
       - name: suspend_date

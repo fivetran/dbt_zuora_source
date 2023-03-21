@@ -1,7 +1,6 @@
 
 target/
 dbt_modules/
-logs/
-.DS_Store   
+logs/   
 dbt_packages/
 env/

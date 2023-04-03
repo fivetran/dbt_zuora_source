@@ -122,6 +122,10 @@ Home currency the customer is billed in.
 The unique identifier of the 
 {% enddocs %}
 
+{% docs is_most_recent_record %}
+Is this the most recent record of 
+{% enddocs %}
+
 {% docs product_id %}
 {% enddocs %}
 

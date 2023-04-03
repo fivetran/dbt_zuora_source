@@ -60,8 +60,11 @@ final as (
         term_type, 
         updated_by_id,
         updated_date,
-        version
+        version,
+        row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record
+
         {{ fivetran_utils.fill_pass_through_columns('zuora__subscription_pass_through_columns') }}
+        
     from fields
 )
 

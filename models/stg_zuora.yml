@@ -63,6 +63,8 @@ models:
       - name: updated_by_id
         description: "{{ doc('updated_by_id') }} the account." 
       - name: vatid
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the account."
 
   - name: stg_zuora__accounting_code
     description: "{{ doc('accounting_code_table') }}" 
@@ -94,6 +96,8 @@ models:
         description: "{{ doc('updated_by_id') }} the accounting code."
       - name: updated_date
         description: "{{ doc('updated_date') }} the accounting code."
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the accounting code."
 
   - name: stg_zuora__amendment
     description: "{{ doc('amendment_table') }}"  
@@ -157,6 +161,8 @@ models:
         description: "{{ doc('updated_by_id') }} the amendment."
       - name: updated_date
         description: "{{ doc('updated_date') }} the amendment."
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the amendment."
 
   - name: stg_zuora__contact
     description: "{{ doc('contact_table') }}"  
@@ -196,6 +202,8 @@ models:
         description: The contact's business email address.
       - name: work_phone
         description: The contact's business phone number.
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the contact."
 
   - name: stg_zuora__credit_balance_adjustment
     description: "{{ doc('credit_balance_adjustment_table') }}"
@@ -259,6 +267,8 @@ models:
         description: "{{ doc('updated_by_id') }} the credit balance adjustment."
       - name: updated_date
         description: "{{ doc('updated_date') }} the credit balance adjustment."
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the credit balance adjustment."
 
   - name: stg_zuora__invoice
     description: "{{ doc('invoice_table') }}"
@@ -336,6 +346,8 @@ models:
         description: "{{ doc('updated_by_id') }} the invoice."
       - name: updated_date 
         description: "{{ doc('updated_date') }} the invoice."
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the invoice."
 
   - name: stg_zuora__invoice_item
     description: "{{ doc('invoice_item_table') }}"
@@ -390,6 +402,8 @@ models:
       - name: uom
       - name: updated_by_id
       - name: updated_date
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the invoice item."
 
   - name: stg_zuora__invoice_payment
     description: invoice payment details
@@ -423,6 +437,8 @@ models:
       - name: transaction_currency
       - name: updated_by_id
       - name: updated_date
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the invoice payment."
 
   - name: stg_zuora__journal_entry
     description: "{{ doc('journal_entry_table') }}"
@@ -469,6 +485,8 @@ models:
       - name: type
       - name: updated_by_id
       - name: updated_date
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the journal entry item."
 
   - name: stg_zuora__order
     description: "{{ doc('order_table') }}"
@@ -491,6 +509,8 @@ models:
       - name: state
       - name: status 
       - name: updated_date    
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the order."
 
   - name: stg_zuora__order_item
     description: "{{ doc('order_item_table') }}"
@@ -515,6 +535,8 @@ models:
       - name: subscription_id
       - name: updated_by_id
       - name: updated_date
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the order item."
 
   - name: stg_zuora__payment
     description: "{{ doc('payment_table') }}"
@@ -554,6 +576,8 @@ models:
       - name: unapplied_amount
       - name: updated_by_id
       - name: updated_date
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the payment."
     
   - name: stg_zuora__payment_method
     description: "{{ doc('payment_method_table') }}"
@@ -584,6 +608,8 @@ models:
       - name: type
       - name: updated_by_id
       - name: updated_date
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the payment method."
 
   - name: stg_zuora__product
     description: "{{ doc('product_table') }}"
@@ -602,6 +628,8 @@ models:
       - name: sku
       - name: updated_by_id
       - name: updated_date
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the payment."
 
   - name: stg_zuora__product_rate_plan
     description: "{{ doc('product_rate_plan_table') }}"
@@ -619,6 +647,8 @@ models:
       - name: product_id
       - name: updated_by_id
       - name: updated_date
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the product rate plan."
 
   - name: stg_zuora__product_rate_plan_charge
     description: "{{ doc('product_rate_plan_charge_table') }}"
@@ -664,6 +694,8 @@ models:
       - name: updated_date
       - name: use_discount_specific_accounting_code
       - name: weekly_bill_cycle_day
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the product rate plan charge."
 
   - name: stg_zuora__rate_plan
     description: "{{ doc('rate_plan_table') }}"
@@ -687,6 +719,8 @@ models:
       - name: subscription_id
       - name: updated_by_id
       - name: updated_date
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the rate plan."
 
   - name: stg_zuora__rate_plan_charge
     description: "{{ doc('rate_plan_charge_table') }}"
@@ -765,6 +799,8 @@ models:
       - name: updated_date
       - name: version
       - name: weekly_bill_cycle_day
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the rate plan charge."
   
   - name: stg_zuora__refund_invoice_payment
     description: refund invoice payment details
@@ -776,7 +812,9 @@ models:
       - name: created_date
       - name: refund_amount 
       - name: updated_by_id
-      - name: updated_date    
+      - name: updated_date
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the refund invoice payment."
   
   - name: stg_zuora__refund
     description: "{{ doc('refund_table') }}"
@@ -803,7 +841,8 @@ models:
       - name: type
       - name: updated_by_id
       - name: updated_date
-
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the refund."
 
   - name: stg_zuora__subscription
     description: "{{ doc('subscription_table') }}"
@@ -849,6 +888,8 @@ models:
       - name: version
       - name: is_latest_version
       - name: cancel_reason
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the subscription."
 
   - name: stg_zuora__taxation_item
     description: "{{ doc('taxation_item_table') }}"
@@ -895,3 +936,5 @@ models:
       - name: transaction_currency
       - name: updated_by_id
       - name: updated_date
+      - name: is_most_recent_record
+        description: "{{ doc('is_most_recent_record') }} the taxation item."

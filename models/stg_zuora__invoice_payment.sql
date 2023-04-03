@@ -47,7 +47,8 @@ final as (
         sold_to_contact_id,
         transaction_currency,
         updated_by_id,
-        updated_date
+        updated_date,
+        row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record
     from fields
 )
 

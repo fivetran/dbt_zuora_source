@@ -90,7 +90,8 @@ final as (
         updated_by_id,
         updated_date, 
         version,
-        weekly_bill_cycle_day
+        weekly_bill_cycle_day,
+        row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record
     from fields
 )
 

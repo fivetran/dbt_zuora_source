@@ -50,10 +50,11 @@ final as (
         unapplied_credit_memo_amount,
         updated_by_id,
         updated_date,
-        vatid
+        vatid,
+        row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record
 
         {{ fivetran_utils.fill_pass_through_columns('zuora__account_pass_through_columns') }}
-        
+
     from fields
 )
 

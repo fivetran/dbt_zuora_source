@@ -38,7 +38,7 @@ final as (
         work_email,
         work_phone,
         row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record,
-        row_number() over (partition by account_id order by created_date desc) = 1 as most_recent_account_contact
+        row_number() over (partition by account_id order by created_date desc) = 1 as is_most_recent_account_contact
     from fields
 )
 

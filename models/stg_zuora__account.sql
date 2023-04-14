@@ -46,8 +46,6 @@ final as (
         tax_exempt_status, 
         total_debit_memo_balance,
         total_invoice_balance,
-        unapplied_balance,
-        unapplied_credit_memo_amount,
         updated_by_id,
         updated_date,
         vatid,

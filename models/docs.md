@@ -76,6 +76,10 @@ A refund returns money to a customer - as opposed to a credit, which creates a c
 External refunds indicate that the refund was processed outside of Zuora, say by a check, and the transaction must be recorded.
 {% enddocs %}
 
+{% docs refund_invoice_payment_table %}
+This table exports information on refunds attributed to invoice payments.
+{% enddocs %}
+
 {% docs subscription_table %}
 A subscription is a product or service that has recurring charges, such as a monthly flat fee or charges based on usage. Subscriptions can also include one-time charges, such as activation fees. Every subscription must be associated with an account. At least one active account must exist before any subscriptions can be created.
 {% enddocs %}

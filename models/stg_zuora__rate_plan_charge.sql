@@ -92,6 +92,9 @@ final as (
         version,
         weekly_bill_cycle_day,
         row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record
+
+        {{ fivetran_utils.fill_pass_through_columns('zuora_rate_plan_charge_pass_through_columns') }}
+
     from fields
 )
 

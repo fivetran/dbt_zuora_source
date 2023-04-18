@@ -59,8 +59,10 @@ vars:
 Your Zuora connector may not be syncing all tabes that this package references. This might be because you are excluding those tables. If you are not using those tables, you can disable the corresponding functionality in the package by specifying the variable in your `dbt_project.yml`. By default, all packages are assumed to be true. You only have to add variables for tables you want to disable, like so: 
 
 ```yml 
-vars:
-  zuora__using_refund:  false # Disable if you do not have the refund table
+vars: 
+  zuora__using_credit_balance_adjustment: false # Disable if you do not have the credit balance adjustment table 
+  zuora__using_refund: false # Disable if you do not have the refund table
+  zuora__using_taxation_item: false # Disable if you do not have the taxation item table
 ```   
 ## (Optional) Step 5: Additional configurations
 <details><summary>Expand to view configurations</summary>
@@ -78,6 +80,12 @@ vars:
     zuora_subscription_pass_through_columns:
       - name: "this_field"
         alias: "cool_field_name"
+    zuora_rate_plan_pass_through_columns:
+      - name: "another_field"
+        alias: "cooler_field_name"
+    zuora_rate_plan_charge_pass_through_columns:
+      - name: "yet_another_field"
+        alias: "coolest_field_name"
 ```
 
 ### Change the build schema

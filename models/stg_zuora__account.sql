@@ -51,7 +51,7 @@ final as (
         vatid,
         row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record
 
-        {{ fivetran_utils.fill_pass_through_columns('zuora__account_pass_through_columns') }}
+        {{ fivetran_utils.fill_pass_through_columns('zuora_account_pass_through_columns') }}
 
     from fields
 )

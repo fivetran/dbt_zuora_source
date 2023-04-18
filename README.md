@@ -95,6 +95,9 @@ By default, this package builds the zuora staging models within a schema titled 
 models:
     zuora_source:
       +schema: my_new_schema_name # leave blank for just the target_schema
+    zuora:
+      +schema: my_new_schema_name # leave blank for just the target_schema
+
 ```
 
 ### Change the source table references
@@ -103,7 +106,7 @@ If an individual source table has a different name than the package expects, add
 
 ```yml
 vars:
-    <default_source_table_name>_identifier: your_table_name 
+    zuora_<default_source_table_name>_identifier: your_table_name 
 ```
 
   

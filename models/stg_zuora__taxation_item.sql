@@ -1,3 +1,4 @@
+{{ config(enabled=var('zuora__using_taxation_item', true)) }}
 
 with base as (
 

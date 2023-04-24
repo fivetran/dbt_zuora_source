@@ -77,7 +77,8 @@
     {"name": "weekly_bill_cycle_day", "datatype": dbt.type_string()}
 ] %}
 
-{{ fivetran_utils.fill_pass_through_columns('zuora_rate_plan_charge_pass_through_columns') }}
+
+{{ fivetran_utils.add_pass_through_columns(columns, var('zuora_rate_plan_charge_pass_through_columns')) }}  
 
 {{ return(columns) }}
 

@@ -21,7 +21,6 @@ final as (
     
     select 
         id as invoice_payment_id,
-        _fivetran_synced,
         account_id,
         account_receivable_accounting_code_id,
         accounting_period_id,

@@ -21,8 +21,7 @@ fields as (
 final as (
     
     select 
-        id as refund_invoice_payment_id,
-        _fivetran_synced,
+        id as refund_invoice_payment_id, 
         created_by_id,
         created_date,
         refund_amount,

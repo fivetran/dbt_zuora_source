@@ -1,6 +1,7 @@
-# dbt_zuora_source v0.UPDATE.UPDATE
-
- ## Under the Hood:
+# dbt_zuora_source v0.1.1
+## Documentation Update
+- Removing the disclaimer in the README specifying that this package is under contruction. Following the v0.1.0 release, this package is no longer under construction and is ready for use in your dbt project!
+## Under the Hood:
 
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
 - Updated the pull request [templates](/.github).

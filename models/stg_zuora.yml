@@ -59,10 +59,6 @@ models:
         description: Total balance of the account's debit memos.
       - name: total_invoice_balance
         description: Total balance of the account's invoices.
-      - name: unapplied_balance
-        description: Total of unapplied payments not applied to invoices or debit memos.
-      - name: unapplied_credit_memo_amount
-        description: Total of credit memos created that has been created, but not used to settle or offset an invoice balance or a debit memo balance.
       - name: updated_date
         description: "{{ doc('updated_date') }} the account."
       - name: updated_by_id
@@ -984,7 +980,7 @@ models:
         description: The specific billing period associated with the rate plan charge.
       - name: specific_end_date
         description: The specific end date associated with the rate plan charge.
-      - name: specific_list_base_price
+      - name: specific_list_price_base
         description: The list price base for the rate plan charge.
       - name: subscription_id
         description: The id of the subscription associated with the rate plan charge.

@@ -1,6 +1,3 @@
-
-# 🚧 UNDER CONSTRUCTION 🚧
-
 <p align="center">
     <a alt="License"
         href="https://github.com/fivetran/dbt_zuora_source/blob/main/LICENSE">

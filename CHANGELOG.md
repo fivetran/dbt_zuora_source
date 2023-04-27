@@ -1,3 +1,14 @@
+# dbt_zuora_source v0.1.1
+## Bug Fixes
+- Included model disable logic within the `stg_zuora__credit_balance_adjustment_tmp` and `stg_zuora__refund_invoice_payment_tmp` models in order to ensure they are not run if the appropriate variables are set to `false`.
+
+## Documentation Update
+- Adjustment within the README to classify the package is no longer in development post v0.1.0 release.
+
+## Under the Hood
+- Updated `run_models.sh` script that is utilized in the integration tests of this package to ensure rollouts are successful prior to release.
+- Updated the pull request [templates](/.github).
+
 # dbt_zuora_source v0.1.0
 🎉 Initial Release 🎉
 - This is the initial release of this package. 

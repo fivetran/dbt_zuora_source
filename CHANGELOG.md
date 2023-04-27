@@ -1,10 +1,14 @@
 # dbt_zuora_source v0.1.1
-## Documentation Update
-- Removing the disclaimer in the README specifying that this package is under contruction. Following the v0.1.0 release, this package is no longer under construction and is ready for use in your dbt project!
-## Under the Hood:
+## Bug Fixes
+- Included model disable logic within the `stg_zuora__credit_balance_adjustment_tmp` and `stg_zuora__refund_invoice_payment_tmp` models in order to ensure they are not run if the appropriate variables are set to `false`.
 
-- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
+## Documentation Update
+- Adjustment within the README to classify the package is no longer in development post v0.1.0 release.
+
+## Under the Hood
+- Updated `run_models.sh` script that is utilized in the integration tests of this package to ensure rollouts are successful prior to release.
 - Updated the pull request [templates](/.github).
+
 # dbt_zuora_source v0.1.0
 🎉 Initial Release 🎉
 - This is the initial release of this package. 

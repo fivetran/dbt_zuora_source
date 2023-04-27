@@ -55,15 +55,16 @@ models:
         description: Date when the customer's tax exemption certificate expires.
       - name: tax_exempt_status
         description: Status of the account's tax exemption.
+      - name: total_debit_memo_balance
+        description: Total balance of the account's debit memos.
       - name: total_invoice_balance
         description: Total balance of the account's invoices.
-      - name: unapplied_balance
-      - name: unapplied_credit_memo_amount
       - name: updated_date
         description: "{{ doc('updated_date') }} the account."
       - name: updated_by_id
         description: "{{ doc('updated_by_id') }} the account." 
       - name: vatid
+        description: EU Value Added Tax ID.
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }} the account."
 
@@ -138,6 +139,7 @@ models:
     description: "{{ doc('contact_table') }}"  
     columns:
       - name: contact_id 
+        description: "{{ doc('id') }} contact table."
         tests:
           - unique
           - not_null
@@ -175,6 +177,8 @@ models:
         description: The contact's business phone number.
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }} the contact."
+      - name: is_most_recent_account_contact
+        description: Is this the most recent account for the contact?
 
   - name: stg_zuora__credit_balance_adjustment
     description: "{{ doc('credit_balance_adjustment_table') }}"
@@ -311,12 +315,18 @@ models:
         description: The id of the parent account, if the invoice is associated with a parent-child account relationship.
       - name: payment_amount
         description: The amount of payments applied to the invoice.
+      - name: payment_term
+        description: The name of the payment term associated with the invoice.
       - name: posted_by
         description: The user ID of the person who moved the invoice to Posted status.
       - name: posted_date
         description: The date when the invoice was posted.
+      - name: refund_amount
+        description: Specifies the amount of a refund that was applied against an earlier payment on the invoice.
       - name: sold_to_contact_id
         description: "{{ doc('sold_to_contact_id') }}" 
+      - name: source
+        description: The source of the invoice.
       - name: source_id
         description: The identifier of the value in the source field.
       - name: source_type
@@ -492,7 +502,6 @@ models:
         description: The id of the user who last updated the invoice payment.
       - name: updated_date
         description: The date and time when the invoice payment was last updated.
-      - name: updated_date
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }} the invoice payment."
 
@@ -826,7 +835,7 @@ models:
         description: The unique identifier of the amendment that the rate plan belongs to.
       - name: bill_to_contact_id
         description: The unique identifier of the contact that the rate plan is billed to.
-      - name: created by_id
+      - name: created_by_id
         description: The unique identifier of the user who created the rate plan.
       - name: created_date
         description: The date and time when the rate plan was created.
@@ -971,6 +980,8 @@ models:
         description: The specific billing period associated with the rate plan charge.
       - name: specific_end_date
         description: The specific end date associated with the rate plan charge.
+      - name: specific_list_price_base
+        description: The list price base for the rate plan charge.
       - name: subscription_id
         description: The id of the subscription associated with the rate plan charge.
       - name: tcv

@@ -1,6 +1,3 @@
-
-# 🚧 UNDER CONSTRUCTION 🚧
-
 <p align="center">
     <a alt="License"
         href="https://github.com/fivetran/dbt_zuora_source/blob/main/LICENSE">
@@ -60,8 +57,9 @@ Your Zuora connector may not be syncing all tabes that this package references. 
 
 ```yml 
 vars: 
-  zuora__using_credit_balance_adjustment: false # Disable if you do not have the credit balance adjustment table 
+  zuora__using_credit_balance_adjustment: false # Disable if you do not have the credit balance adjustment table
   zuora__using_refund: false # Disable if you do not have the refund table
+  zuora__using_refund_invoice_payment: false # Disable if you do not have the refund invoice payment table
   zuora__using_taxation_item: false # Disable if you do not have the taxation item table
 ```   
 ## (Optional) Step 5: Additional configurations
@@ -95,9 +93,6 @@ By default, this package builds the zuora staging models within a schema titled 
 models:
     zuora_source:
       +schema: my_new_schema_name # leave blank for just the target_schema
-    zuora:
-      +schema: my_new_schema_name # leave blank for just the target_schema
-
 ```
 
 ### Change the source table references
@@ -145,4 +140,4 @@ We highly encourage and welcome contributions to this package. Check out [this d
 # 🏪 Are there any resources available?
 - If you have questions or want to reach out for help, please refer to the [GitHub Issue](https://github.com/fivetran/dbt_zuora_source/issues/new/choose) section to find the right avenue of support for you.
 - If you would like to provide feedback to the dbt package team at Fivetran or would like to request a new dbt package, fill out our [Feedback Form](https://www.surveymonkey.com/r/DQ7K7WW).
-- Have questions or want to just say hi? Book a time during our office hours [on Calendly](https://calendly.com/fivetran-solutions-team/fivetran-solutions-team-office-hours) or email us at solutions@fivetran.com.
+- Submit any questions you have about our packages [in our Fivetran dbt community](https://community.fivetran.com/t5/user-group-for-dbt/gh-p/dbt-user-group) so our Engineering team can provide guidance as quickly as possible!

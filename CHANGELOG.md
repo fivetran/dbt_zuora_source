@@ -5,8 +5,8 @@
 ## Documentation Update
 - Adjustment within the README to classify the package is no longer in development post v0.1.0 release.
 
-## Under the Hood
-- Updated `run_models.sh` script that is utilized in the integration tests of this package to ensure rollouts are successful prior to release.
+## Under the Hood 
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job, updated `run_models.sh` script that is utilized in the integration tests of this package to ensure rollouts are successful prior to release.
 - Updated the pull request [templates](/.github).
 
 # dbt_zuora_source v0.1.0

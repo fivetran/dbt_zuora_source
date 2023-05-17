@@ -34,14 +34,15 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
-## Step 2: Install the package
+## Step 2: Install the package (skip if also using the `zuora` transformation package)
+If you are **not** using the [Zuora transformation package](https://github.com/fivetran/dbt_zuora), include the following `zuora_source` package version in your `packages.yml` file.
 Include the following zuora_source package version in your `packages.yml` file.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ```yaml
 packages:
   - package: fivetran/zuora_source
-    version: [">=0.1.0", "<0.2.0"]
+    version: [">=0.1.0", "<0.2.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `zuora` schema. If this is not where your zuora data is (for example, if your zuora schema is named `zuora_fivetran`), add the following configuration to your root `dbt_project.yml` file:

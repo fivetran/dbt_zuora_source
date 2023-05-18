@@ -13,21 +13,21 @@
 # Zuora Source dbt package ([Docs](https://fivetran.github.io/dbt_zuora_source/))
 
 # 📣 What does this dbt package do?
-- Materializes [Zuora staging tables]((https://fivetran.github.io/dbt_zuora_source/#!/overview/github_source/models/?g_v=1)) which leverages data in the format described by [this ERD](https://fivetran.com/docs/applications/zuora#schemainformation). These staging tables clean, test, and prepare your Zuora data from [Fivetran's connector](https://fivetran.com/docs/applications/zuora) for analysis by doing the following:
-  - Name columns for consistency across all packages and easier analysis.
-  - Adds freshness tests to source data.
-  - Adds column-level testing where applicable. For example,  all primary keys are tested for uniqueness and non-null values.
-- Generates a comprehensive data dictionary of your Zuora data through the [dbt docs site](https://fivetran.github.io/dbt_zuora_source/).
-- These tables are designed to work simultaneously with our [Zuora transformation package](https://github.com/fivetran/dbt_zuora).
+- Materializes [Zuora staging tables](https://fivetran.github.io/dbt_zuora_source/#!/overview/github_source/models/?g_v=1), which leverages data in the format described by [this ERD](https://fivetran.com/docs/applications/zuora#schemainformation). These staging tables clean, test, and prepare your Zuora data from [Fivetran's connector](https://fivetran.com/docs/applications/zuora) for analysis by doing the following:
+  - Naming columns for consistency across all packages and easier analysis
+  - Adding freshness tests to source data
+  - Adding column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values
+- Generating a comprehensive data dictionary of your Zuora data through the [dbt docs site](https://fivetran.github.io/dbt_zuora_source/)
+- These tables are designed to work simultaneously with our [Zuora transformation package](https://github.com/fivetran/dbt_zuora)
 
 # 🎯 How do I use the dbt package?
 ## Step 1: Prerequisites
 To use this dbt package, you must have the following:
-- At least one Fivetran Zuora connector syncing data into your destination. 
-- A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, **Databricks** destination.
+- At least one Fivetran Zuora connector syncing data into your destination 
+- A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, **Databricks** destination
 
 ### Databricks Dispatch Configuration
-If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
+If you are using a Databricks destination with this package, you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required for the package to accurately search for macros within the `dbt-labs/spark_utils`, then the `dbt-labs/dbt_utils` packages, respectively.
 ```yml
 dispatch:
   - macro_namespace: dbt_utils
@@ -36,7 +36,7 @@ dispatch:
 
 ## Step 2: Install the package (skip if also using the `zuora` transformation package)
 If you are **not** using the [Zuora transformation package](https://github.com/fivetran/dbt_zuora), include the following `zuora_source` package version in your `packages.yml` file.
-Include the following zuora_source package version in your `packages.yml` file.
+Include the following `zuora_source` package version in your `packages.yml` file.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ```yaml
@@ -45,7 +45,7 @@ packages:
     version: [">=0.1.0", "<0.2.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 ## Step 3: Define database and schema variables
-By default, this package runs using your destination and the `zuora` schema. If this is not where your zuora data is (for example, if your zuora schema is named `zuora_fivetran`), add the following configuration to your root `dbt_project.yml` file:
+By default, this package runs using your destination and the `zuora` schema. If this is not where your Zuora data is (for example, if your zuora schema is named `zuora_fivetran`), add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 vars:
@@ -54,7 +54,8 @@ vars:
 ```
 
 ## Step 4: Disable models for non-existent sources
-Your Zuora connector may not be syncing all tabes that this package references. This might be because you are excluding those tables. If you are not using those tables, you can disable the corresponding functionality in the package by specifying the variable in your `dbt_project.yml`. By default, all packages are assumed to be true. You only have to add variables for tables you want to disable, like so: 
+
+Your Zuora connector may not be syncing all tabes that this package references. This might be because you are excluding those tables. If you are not using those tables, you can disable the corresponding functionality in the package by specifying the variable in your `dbt_project.yml`. By default, all packages are assumed to be true. You only have to add variables for tables you want to disable in the following way: 
 
 ```yml 
 vars: 
@@ -67,7 +68,7 @@ vars:
 <details><summary>Expand to view configurations</summary>
 
 ### Passing Through Additional Fields
-This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
+This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Data type casting is configured via a SQL snippet within the `transform_sql` key. You may add the desired SQL while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
 
 ```yml
 vars:
@@ -88,7 +89,7 @@ vars:
 ```
 
 ### Change the build schema
-By default, this package builds the zuora staging models within a schema titled (`<target_schema>` + `_zuora_source`) in your destination. If this is not where you would like your zuora staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the Zuora staging models within a schema titled (`<target_schema>` + `_zuora_source`) in your destination. If this is not where you would like your Zuora staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:

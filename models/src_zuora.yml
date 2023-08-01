@@ -506,6 +506,8 @@ sources:
       - name: order
         identifier: "{{ var('zuora_order_identifier', 'order')}}"
         description: "{{ doc('order_table') }}"
+        quoting:
+          identifier: true
         columns:
           - name: id
             description: "{{ doc('id') }} order table."

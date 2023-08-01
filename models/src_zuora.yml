@@ -504,10 +504,10 @@ sources:
             description: The date and time when the invoice payment was last updated. 
 
       - name: order
-        identifier: "{{ var('zuora_order_identifier', 'order')}}"
+        identifier: >
+          {% if target.type == 'snowflake' %}{{ var('zuora_order_identifier', '"ORDER"') }}
+          {% else %}{{ var('zuora_order_identifier', 'order') }}{% endif %}
         description: "{{ doc('order_table') }}"
-        quoting:
-          identifier: true
         columns:
           - name: id
             description: "{{ doc('id') }} order table."

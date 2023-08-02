@@ -66,6 +66,7 @@ final as (
         {{ fivetran_utils.fill_pass_through_columns('zuora_subscription_pass_through_columns') }}
 
     from fields
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select *

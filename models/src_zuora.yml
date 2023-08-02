@@ -14,6 +14,8 @@ sources:
         columns:
           - name: id
             description: "{{ doc('id') }} account table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'
           - name: account_number
@@ -83,6 +85,8 @@ sources:
         columns: 
           - name: id
             description: "{{ doc('id') }} amendment table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'
           - name: auto_renew
@@ -148,6 +152,8 @@ sources:
         columns:
           - name: id 
             description: "{{ doc('id') }} contact table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id
@@ -189,6 +195,8 @@ sources:
         columns:
           - name: id
             description: "{{ doc('id') }} credit balance adjustment table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id
@@ -260,6 +268,8 @@ sources:
         columns:
           - name: id 
             description: "{{ doc('id') }} invoice table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id
@@ -355,6 +365,8 @@ sources:
         columns:
           - name: id 
             description: "{{ doc('id') }} invoice item table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id
@@ -448,6 +460,8 @@ sources:
         columns:
           - name: id 
             description: "{{ doc('id') }} invoice item table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id        
@@ -511,6 +525,8 @@ sources:
         columns:
           - name: id
             description: "{{ doc('id') }} order table."
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'   
           - name: account_id
@@ -556,6 +572,8 @@ sources:
         columns:
           - name: id
             description: The unique identifier of the payment.
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id
@@ -625,6 +643,8 @@ sources:
         columns:
           - name: id
             description: The unique identifier of the payment method.
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'   
           - name: account_id
@@ -703,6 +723,8 @@ sources:
         columns:
           - name: id
             description: Unique identifier of the product rate plan.
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'   
           - name: created_by_id
@@ -730,6 +752,8 @@ sources:
         columns:
           - name: id
             description: Unique identifier of the product rate plan charge.
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'             
           - name: account_receivable_accounting_code_id
@@ -813,6 +837,8 @@ sources:
         columns:
           - name: id
             description: The unique identifier of the rate plan.
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'   
           - name: account_id
@@ -850,6 +876,8 @@ sources:
         columns:
           - name: id
             description: The unique identifier for the rate plan charge.
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}'   
           - name: account_id
@@ -999,6 +1027,8 @@ sources:
         columns:
           - name: id
             description: The unique identifier of the refund object.
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}' 
           - name: accounting_code
@@ -1065,6 +1095,8 @@ sources:
         columns:
           - name: id
             description: The unique identifier for the subscription.
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}' 
           - name: account_id
@@ -1154,6 +1186,8 @@ sources:
         columns:
           - name: id
             description: The unique identifier of the taxation item.
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
           - name: _fivetran_deleted
             description: '{{ doc("_fivetran_deleted") }}' 
           - name: account_id

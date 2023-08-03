@@ -716,6 +716,8 @@ sources:
             description: The id of the user who last updated the product.
           - name: updated_date
             description: The date and time when the product was last updated.
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
     
       - name: product_rate_plan
         identifier: "{{ var('zuora_product_rate_plan_identifier', 'product_rate_plan')}}"
@@ -1078,6 +1080,8 @@ sources:
             description: The id of the refund invoice payment in Zuora.
           - name: _fivetran_synced 
             description: '{{ doc("_fivetran_synced") }}' 
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
           - name: created_by_id
             description: The id of the user who created the refund invoice payment in Zuora.
           - name: created_date

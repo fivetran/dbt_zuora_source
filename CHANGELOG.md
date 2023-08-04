@@ -1,3 +1,17 @@
+# dbt_zuora_source v0.1.2
+[PR #6](https://github.com/fivetran/dbt_zuora_source/pull/6) includes the following updates:
+## Bug Fixes
+- Included a where clause within **all** staging models to filter out `_fivetran_deleted` records.
+- Added a conditional config within the `src_zuora.yml` to properly handle the `order` (reserved word) source table when using Snowflake as a destination.
+
+## Documentation
+- Added a call out in the identifier configuration section of the README to provide instructions for Snowflake users to handle the `order` source table if their destination has case sensitivity enabled.
+
+## Under the Hood
+- Added the `_fivetran_deleted` field to **all** `get_*_columns` macros to ensure the field may be leveraged in the respective staging models.
+
+## Contributors
+- [@raphaelvarieras](https://github.com/raphaelvarieras) ([PR #6](https://github.com/fivetran/dbt_zuora_source/pull/6))
 # dbt_zuora_source v0.1.1
 ## Bug Fixes
 - Included model disable logic within the `stg_zuora__credit_balance_adjustment_tmp` and `stg_zuora__refund_invoice_payment_tmp` models in order to ensure they are not run if the appropriate variables are set to `false`.

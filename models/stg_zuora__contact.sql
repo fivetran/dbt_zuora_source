@@ -40,6 +40,7 @@ final as (
         row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record,
         row_number() over (partition by account_id order by created_date desc) = 1 as is_most_recent_account_contact
     from fields
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select *

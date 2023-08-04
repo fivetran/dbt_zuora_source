@@ -16,6 +16,8 @@ sources:
             description: "{{ doc('id') }} account table."
           - name: _fivetran_synced
             description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
           - name: account_number
             description: Unique account number assigned to the account. 
           - name: auto_pay
@@ -85,6 +87,8 @@ sources:
             description: "{{ doc('id') }} amendment table."
           - name: _fivetran_synced
             description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
           - name: auto_renew
             description: Determines whether the subscription is automatically renewed, or whether it expires at the end of the term and needs to be manually renewed.
           - name: booking_date
@@ -150,6 +154,8 @@ sources:
             description: "{{ doc('id') }} contact table."
           - name: _fivetran_synced
             description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id
             description: The Zuora account id associated with this contact.
           - name: address_1
@@ -191,6 +197,8 @@ sources:
             description: "{{ doc('id') }} credit balance adjustment table."
           - name: _fivetran_synced
             description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id
             description: The account id of the credit balance's account. Zuora generates this value from the source transaction.
           - name: account_receivable_accounting_code_id
@@ -262,6 +270,8 @@ sources:
             description: "{{ doc('id') }} invoice table."
           - name: _fivetran_synced
             description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id
             description: The account identifier associated with the invoice.
           - name: adjustment_amount 
@@ -357,6 +367,8 @@ sources:
             description: "{{ doc('id') }} invoice item table."
           - name: _fivetran_synced
             description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id
             description: id of the account associated with this invoice item.
           - name: account_receivable_accounting_code_id
@@ -450,6 +462,8 @@ sources:
             description: "{{ doc('id') }} invoice item table."
           - name: _fivetran_synced
             description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id        
             description: The id of the customer account that the invoice payment is associated with.
           - name: account_receivable_accounting_code_id
@@ -504,13 +518,17 @@ sources:
             description: The date and time when the invoice payment was last updated. 
 
       - name: order
-        identifier: "{{ var('zuora_order_identifier', 'order')}}"
+        identifier: >
+          {% if target.type == 'snowflake' %}{{ var('zuora_order_identifier', '"ORDER"') }}
+          {% else %}{{ var('zuora_order_identifier', 'order') }}{% endif %}
         description: "{{ doc('order_table') }}"
         columns:
           - name: id
             description: "{{ doc('id') }} order table."
           - name: _fivetran_synced
-            description: '{{ doc("_fivetran_synced") }}'   
+            description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'   
           - name: account_id
             description: The id of the account associated with this order.
           - name: bill_to_contact_id
@@ -556,6 +574,8 @@ sources:
             description: The unique identifier of the payment.
           - name: _fivetran_synced
             description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
           - name: account_id
             description: The id of the Zuora account associated with the payment.
           - name: accounting_code
@@ -624,7 +644,9 @@ sources:
           - name: id
             description: The unique identifier of the payment method.
           - name: _fivetran_synced
-            description: '{{ doc("_fivetran_synced") }}'   
+            description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'   
           - name: account_id
             description: The unique identifier of the account associated with this payment method.
           - name: ach_account_type
@@ -694,6 +716,8 @@ sources:
             description: The id of the user who last updated the product.
           - name: updated_date
             description: The date and time when the product was last updated.
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
     
       - name: product_rate_plan
         identifier: "{{ var('zuora_product_rate_plan_identifier', 'product_rate_plan')}}"
@@ -702,7 +726,9 @@ sources:
           - name: id
             description: Unique identifier of the product rate plan.
           - name: _fivetran_synced
-            description: '{{ doc("_fivetran_synced") }}'   
+            description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'   
           - name: created_by_id
             description: The id of the Zuora user who created the product rate plan.
           - name: created_date
@@ -729,7 +755,9 @@ sources:
           - name: id
             description: Unique identifier of the product rate plan charge.
           - name: _fivetran_synced
-            description: '{{ doc("_fivetran_synced") }}'             
+            description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'             
           - name: account_receivable_accounting_code_id
             description: The id of the accounting code for the accounts receivable account.
           - name: accounting_code
@@ -812,7 +840,9 @@ sources:
           - name: id
             description: The unique identifier of the rate plan.
           - name: _fivetran_synced
-            description: '{{ doc("_fivetran_synced") }}'   
+            description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'   
           - name: account_id
             description: The unique identifier of the account that the rate plan belongs to.
           - name: amendment_id
@@ -849,7 +879,9 @@ sources:
           - name: id
             description: The unique identifier for the rate plan charge.
           - name: _fivetran_synced
-            description: '{{ doc("_fivetran_synced") }}'   
+            description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'   
           - name: account_id
             description: The unique identifier of the account associated with the rate plan charge.
           - name: account_receivable_accounting_code_id
@@ -998,7 +1030,9 @@ sources:
           - name: id
             description: The unique identifier of the refund object.
           - name: _fivetran_synced
-            description: '{{ doc("_fivetran_synced") }}' 
+            description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}' 
           - name: accounting_code
             description: The accounting code associated with the refund.
           - name: amount
@@ -1046,6 +1080,8 @@ sources:
             description: The id of the refund invoice payment in Zuora.
           - name: _fivetran_synced 
             description: '{{ doc("_fivetran_synced") }}' 
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}'
           - name: created_by_id
             description: The id of the user who created the refund invoice payment in Zuora.
           - name: created_date
@@ -1064,7 +1100,9 @@ sources:
           - name: id
             description: The unique identifier for the subscription.
           - name: _fivetran_synced
-            description: '{{ doc("_fivetran_synced") }}' 
+            description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}' 
           - name: account_id
             description: The unique identifier for the account associated with the subscription.
           - name: auto_renew
@@ -1153,7 +1191,9 @@ sources:
           - name: id
             description: The unique identifier of the taxation item.
           - name: _fivetran_synced
-            description: '{{ doc("_fivetran_synced") }}' 
+            description: '{{ doc("_fivetran_synced") }}'
+          - name: _fivetran_deleted
+            description: '{{ doc("_fivetran_deleted") }}' 
           - name: account_id
             description: The id of the account associated with the taxation item.
           - name: account_receivable_accounting_code_id

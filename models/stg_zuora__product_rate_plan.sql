@@ -32,6 +32,7 @@ final as (
         updated_date,
         row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record
     from fields
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select *

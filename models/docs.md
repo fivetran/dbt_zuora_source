@@ -118,6 +118,10 @@ Identifier of the default payment method for the account.
 Timestamp of when a record was last synced.
 {% enddocs %}
 
+{% docs _fivetran_deleted %}
+Boolean identifiying whether the record was deleted in the source.
+{% enddocs %}
+
 {% docs home_currency %}
 Home currency the customer is billed in.
 {% enddocs %}

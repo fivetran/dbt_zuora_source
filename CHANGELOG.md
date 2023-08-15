@@ -1,6 +1,6 @@
 # dbt_zuora_source v0.2.0
-
 [PR #9](https://github.com/fivetran/dbt_zuora_source/pull/9) includes the following update:
+
 ## 🚨 Breaking Change 🚨:
 - Updated model configuration in `dbt_project.yml` to correctly reflect project configuration name as `zuora_source`. 
 

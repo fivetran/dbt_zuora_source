@@ -5,7 +5,7 @@
 - Updated model configuration in `dbt_project.yml` to correctly reflect project configuration name as `zuora_source`. This is a breaking change because customers may unexpectedly see errors if they changed their materialization settings on any of their models.
 
 ## 🔧 Under The Hood 🔩
-- Updated seed files in `integration_tests` to match `dbt_zuora` for their `v0.2.0` release.
+- Updated seed files in `integration_tests` to match those in `dbt_zuora` for the `v0.2.0` release.
 
 # dbt_zuora_source v0.1.2
 [PR #6](https://github.com/fivetran/dbt_zuora_source/pull/6) includes the following updates:

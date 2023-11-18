@@ -970,6 +970,8 @@ models:
         description: The quantity associated with the rate plan charge.
       - name: rate_plan_id
         description: The unique identifier of the rate plan associated with the rate plan charge.
+      - name: recognized_revenue_accounting_code_id
+        description: The unique identifier of the accounting code associated with recognized revenue for the rate plan charge.
       - name: segment
         description: The segment associated with the rate plan charge.
       - name: sold_to_contact_id

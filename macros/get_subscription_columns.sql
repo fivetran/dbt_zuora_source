@@ -30,7 +30,6 @@
     {"name": "parent_account_id", "datatype": dbt.type_string()},
     {"name": "payment_term", "datatype": dbt.type_string()},
     {"name": "previous_subscription_id", "datatype": dbt.type_string()},
-    {"name": "renewal_setting", "datatype": dbt.type_string()},
     {"name": "renewal_term", "datatype": dbt.type_int()},
     {"name": "renewal_term_period_type", "datatype": dbt.type_string()},
     {"name": "revision", "datatype": dbt.type_string()},

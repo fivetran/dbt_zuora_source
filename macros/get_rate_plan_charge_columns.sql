@@ -63,7 +63,6 @@
     {"name": "specific_end_date", "datatype": "date"},
     {"name": "specific_list_price_base", "datatype": dbt.type_int()},
     {"name": "subscription_id", "datatype": dbt.type_string()},
-    {"name": "subscription_owner_id", "datatype": dbt.type_string()},
     {"name": "tcv", "datatype": dbt.type_float()}, 
     {"name": "tcvhome_currency", "datatype": dbt.type_float()},
     {"name": "transaction_currency", "datatype": dbt.type_string()},

@@ -14,7 +14,6 @@
     {"name": "comment", "datatype": dbt.type_string()},
     {"name": "created_by_id", "datatype": dbt.type_string()},
     {"name": "created_date", "datatype": dbt.type_timestamp()},
-    {"name": "customer_cash_on_account_accounting_code_id", "datatype": dbt.type_string()},
     {"name": "default_payment_method_id", "datatype": dbt.type_string()},
     {"name": "exchange_rate", "datatype": dbt.type_float()},
     {"name": "exchange_rate_date", "datatype": "date"},

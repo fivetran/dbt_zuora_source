@@ -30,7 +30,6 @@
     {"name": "rate_plan_charge_id", "datatype": dbt.type_string()},
     {"name": "rate_plan_id", "datatype": dbt.type_string()},
     {"name": "sales_tax_payable_accounting_code_id", "datatype": dbt.type_string()},
-    {"name": "seller_registration", "datatype": dbt.type_string()},
     {"name": "sold_to_contact_id", "datatype": dbt.type_string()},
     {"name": "subscription_id", "datatype": dbt.type_string()},
     {"name": "tax_amount", "datatype": dbt.type_float()}, 
@@ -39,9 +38,7 @@
     {"name": "tax_description", "datatype": dbt.type_string()},
     {"name": "tax_mode", "datatype": dbt.type_string()},
     {"name": "tax_rate", "datatype": dbt.type_float()},
-    {"name": "tax_rate_description", "datatype": dbt.type_string()},
     {"name": "tax_rate_type", "datatype": dbt.type_string()},
-    {"name": "tax_rule_id", "datatype": dbt.type_string()},
     {"name": "transaction_currency", "datatype": dbt.type_string()},
     {"name": "updated_by_id", "datatype": dbt.type_string()},
     {"name": "updated_date", "datatype": dbt.type_timestamp()}

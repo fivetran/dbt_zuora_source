@@ -30,7 +30,6 @@
     {"name": "name", "datatype": dbt.type_string()},  
     {"name": "product_id", "datatype": dbt.type_string()},
     {"name": "product_rate_plan_id", "datatype": dbt.type_string()},
-    {"name": "recognized_revenue_accounting_code_id", "datatype": dbt.type_string()},  
     {"name": "specific_billing_period", "datatype": dbt.type_int()},  
     {"name": "tax_mode", "datatype": dbt.type_string()},
     {"name": "taxable", "datatype": "boolean"},

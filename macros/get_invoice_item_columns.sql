@@ -16,7 +16,6 @@
     {"name": "charge_name", "datatype": dbt.type_string()},
     {"name": "created_by_id", "datatype": dbt.type_string()},
     {"name": "created_date", "datatype": dbt.type_timestamp()},
-    {"name": "default_payment_method_id", "datatype": dbt.type_string()},
     {"name": "deferred_revenue_accounting_code_id", "datatype": dbt.type_string()},
     {"name": "exchange_rate", "datatype": dbt.type_float()},
     {"name": "exchange_rate_date", "datatype": "date"},

@@ -1,5 +1,6 @@
 # dbt_zuora_source v0.2.1
 [PR #11](https://github.com/fivetran/dbt_zuora_source/pull/11) includes the following update:
+## 🔧 Bug Fixes
 - Updated default column macros to remove columns not used in their associated staging models. This prevents conflicts when bringing in this columns via the passthrough functionality.
 
 # dbt_zuora_source v0.2.0

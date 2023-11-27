@@ -43,7 +43,6 @@
     {"name": "target_date", "datatype": "date"},
     {"name": "tax_amount", "datatype": dbt.type_float()},
     {"name": "tax_status", "datatype": dbt.type_string()},
-    {"name": "template_id", "datatype": dbt.type_string()},
     {"name": "transaction_currency", "datatype": dbt.type_string()},
     {"name": "transferred_to_accounting", "datatype": dbt.type_string()},
     {"name": "updated_by_id", "datatype": dbt.type_string()},

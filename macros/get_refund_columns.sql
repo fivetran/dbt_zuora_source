@@ -12,8 +12,6 @@
     {"name": "id", "datatype": dbt.type_string()}, 
     {"name": "method_type", "datatype": dbt.type_string()},
     {"name": "payment_method_id", "datatype": dbt.type_string()}, 
-    {"name": "reason_code", "datatype": dbt.type_string()},
-    {"name": "reference_id", "datatype": dbt.type_string()},
     {"name": "refund_date", "datatype": "date"},
     {"name": "refund_number", "datatype": dbt.type_string()},
     {"name": "refund_transaction_time", "datatype": dbt.type_timestamp()}, 

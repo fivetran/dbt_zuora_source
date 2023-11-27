@@ -29,8 +29,6 @@
     {"name": "tax_exempt_status", "datatype": dbt.type_string()}, 
     {"name": "total_debit_memo_balance", "datatype": dbt.type_float()},
     {"name": "total_invoice_balance", "datatype": dbt.type_float()},
-    {"name": "unapplied_balance", "datatype": dbt.type_float()},
-    {"name": "unapplied_credit_memo_amount", "datatype": dbt.type_float()},
     {"name": "updated_by_id", "datatype": dbt.type_string()},
     {"name": "updated_date", "datatype": dbt.type_timestamp()},
     {"name": "vatid", "datatype": dbt.type_string()}

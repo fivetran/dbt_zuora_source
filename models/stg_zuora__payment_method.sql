@@ -1,3 +1,4 @@
+{{ config(enabled=var('zuora__using_payment_method', true)) }}
 
 with base as (
 

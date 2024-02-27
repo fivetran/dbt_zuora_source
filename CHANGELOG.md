@@ -1,3 +1,20 @@
+# dbt_zuora_source v0.2.2
+## TO-DO: [PR #]() includes the following update:
+## 🔧 Bug Fixes
+- Add model enable variable config to the following models in order to ensure they do not run when the variable is set to `false`:
+  - `stg_zuora__account` and `stg_zuora__account_tmp`
+  - `stg_zuora__amendment` and `stg_zuora__amendment_tmp`
+  - `stg_zuora__contact` and `stg_zuora__contact_tmp`
+  - `stg_zuora__invoice_item` and stg_zuora__invoice_item_tmp`
+  - `stg_zuora__invoice_payment` and `stg_zuora__invoice_payment_tmp`
+  - `stg_zuora__invoice` and `stg_zuora__invoice_tmp`
+  - `stg_zuora__order` and `stg_zuora__order_tmp`
+  - `stg_zuora__payment_method` and `stg_zuora__payment_method_tmp`
+  - `stg_zuora__payment` and `stg_zuora__payment_tmp`
+  - `stg_zuora__product_rate_plan_charge` and `stg_zuora__product_rate_plan_charge_tmp`
+  - `stg_zuora__product_rate_plan` and `stg_zuora__product_rate_plan_tmp`
+  - `stg_zuora__subscription` and `stg_zuora__subscription_tmp`
+
 # dbt_zuora_source v0.2.1
 [PR #11](https://github.com/fivetran/dbt_zuora_source/pull/11) includes the following update:
 ## 🔧 Bug Fixes

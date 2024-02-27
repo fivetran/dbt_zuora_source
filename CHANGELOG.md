@@ -1,5 +1,5 @@
 # dbt_zuora_source v0.2.2
-## TO-DO: [PR #12](https://github.com/fivetran/dbt_zuora_source/pull/12) includes the following update:
+[PR #12](https://github.com/fivetran/dbt_zuora_source/pull/12) includes the following update:
 ## 🔧 Bug Fixes
 - Add model enable variable config to the following models in order to ensure they do not run when the variable is set to `false`:
   - `stg_zuora__account` and `stg_zuora__account_tmp`

@@ -1,3 +1,4 @@
+{{ config(enabled=var('zuora__using_product_rate_plan', true)) }}
 
 with base as (
 

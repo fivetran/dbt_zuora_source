@@ -1,3 +1,4 @@
+{{ config(enabled=var('zuora__using_account', true)) }}
 
 with base as (
 

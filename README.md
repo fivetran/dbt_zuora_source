@@ -65,7 +65,7 @@ vars:
   zuora__using_taxation_item: false # Disable if you do not have the taxation item table
 ```   
 ### (Optional) Step 5: Additional configurations
-<details><summary>Expand to view configurations</summary>
+<details open><summary>Expand to view configurations</summary>
 
 #### Passing Through Additional Fields
 This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Data type casting is configured via a SQL snippet within the `transform_sql` key. You may add the desired SQL while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
@@ -113,7 +113,7 @@ In this package, this would apply to the `ORDER` source. If you are receiving er
 
 ```yml
 vars:
-    zuora_order_identifier: "ORDER" # as an example, must include the double-quotes and correct case!
+    zuora_order_identifier: "ORDER" # as an example, must include the double-quotes and correct case
 ```  
 
 </details>
@@ -151,4 +151,3 @@ We highly encourage and welcome contributions to this package. Check out [this d
 ## Are there any resources available?
 - If you have questions or want to reach out for help, see the [GitHub Issue](https://github.com/fivetran/dbt_zuora_source/issues/new/choose) section to find the right avenue of support for you.
 - If you would like to provide feedback to the dbt package team at Fivetran or would like to request a new dbt package, fill out our [Feedback Form](https://www.surveymonkey.com/r/DQ7K7WW).
-- Submit any questions you have about our packages [in our Fivetran dbt community](https://community.fivetran.com/t5/user-group-for-dbt/gh-p/dbt-user-group) so our Engineering team can provide guidance as quickly as possible.

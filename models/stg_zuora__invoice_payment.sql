@@ -1,3 +1,4 @@
+{{ config(enabled=var('zuora__using_invoice_payment', true)) }}
 
 with base as (
 

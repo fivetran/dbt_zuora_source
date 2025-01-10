@@ -1,3 +1,8 @@
+# dbt_zuora_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#16](https://github.com/fivetran/dbt_zuora_source/pull/16))
+
 # dbt_zuora_source v0.2.1
 [PR #11](https://github.com/fivetran/dbt_zuora_source/pull/11) includes the following update:
 ## 🔧 Bug Fixes

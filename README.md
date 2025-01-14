@@ -23,7 +23,7 @@
 ## How do I use the dbt package?
 ### Step 1: Prerequisites
 To use this dbt package, you must have the following:
-- At least one Fivetran Zuora connector syncing data into your destination
+- At least one Fivetran Zuora connection syncing data into your destination
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, **Databricks** destination
 
 #### Databricks Dispatch Configuration
@@ -55,7 +55,7 @@ vars:
 
 ### Step 4: Disable models for non-existent sources
 
-Your Zuora connector may not be syncing all tabes that this package references. This might be because you are excluding those tables. If you are not using those tables, you can disable the corresponding functionality in the package by specifying the variable in your `dbt_project.yml`. By default, all packages are assumed to be true. You only have to add variables for tables you want to disable in the following way:
+Your Zuora connection may not be syncing all tabes that this package references. This might be because you are excluding those tables. If you are not using those tables, you can disable the corresponding functionality in the package by specifying the variable in your `dbt_project.yml`. By default, all packages are assumed to be true. You only have to add variables for tables you want to disable in the following way:
 
 ```yml 
 vars: 

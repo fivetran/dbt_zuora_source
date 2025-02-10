@@ -1,4 +1,35 @@
-# dbt_zuora_source version.version
+# dbt_zuora_source v0.2.2
+This release introduces the following updates:
+
+## Bug Fixes
+- Leveraged the `{{ dbt.type_timestamp() }}` macro within the staging models for all timestamp fields. ([#17](https://github.com/fivetran/dbt_zuora_source/pull/17))
+  - This is needed as certain Redshift warehouses sync these fields as `timestamp with time zone` fields by default, causing compilation errors in downstream models in the `dbt_zuora` package. This macro safely removes timezone values from the UTC timestamps and ensures successful compilations of these models.
+
+| **Modelsd**                         | **Field updates cast as timestamp**                                                                 |
+|------------------------------------|------------------------------------------------------------------------------------|
+| `stg_zuora__account`              | `created_date`, `last_invoice_date`, `tax_exempt_effective_date`, `tax_exempt_expiration_date`, `updated_date` |
+| `stg_zuora__amendment`            | `created_date`, `updated_date`                                 |
+| `stg_zuora__contact`            | `created_date`, `updated_date`                                 |
+| `stg_zuora__credit_balance_adjustment` | `cancelled_on`, `created_date`, `updated_date`             |
+| `stg_zuora__invoice_item`         | `charge_date`, `created_date`, `updated_date`                 |
+| `stg_zuora__invoice_payment`      | `created_date`, `updated_date`                                 |
+| `stg_zuora__invoice`              | `created_date`, `last_email_sent_date`, `posted_date`, `updated_date` |
+| `stg_zuora__order`                | `created_date`, `updated_date`                                 |
+| `stg_zuora__payment_method`       | `created_date`, `last_failed_sale_transaction_date`, `last_transaction_date_time`, `updated_date` |
+| `stg_zuora__payment`              | `cancelled_on`, `created_date`, `settled_on`, `submitted_on`, `updated_date` |
+| `stg_zuora__product_rate_plan_charge` | `created_date`, `updated_date`                         |
+| `stg_zuora__product_rate_plan`    | `created_date`, `updated_date`                                 |
+| `stg_zuora__product`    | `created_date`, `updated_date`                                 |
+| `stg_zuora__rate_plan`            | `created_date`, `updated_date`                   |    
+| `stg_zuora__rate_plan_charge`     | `created_date`, `updated_date`                                 |
+| `stg_zuora__refund_invoice_payment`            |     `created_date`, `updated_date`                              |    
+| `stg_zuora__refund`               | `cancelled_on`, `created_date`, `refund_transaction_time`, `settled_on`, `submitted_on`, `updated_date` |
+| `stg_zuora__subscription`         | `cancelled_date`, `contract_acceptance_date`, `contract_effective_date`, `created_date`, `original_created_date`, `service_activation_date`, `subscription_end_date`, `subscription_start_date`, `term_end_date`, `term_start_date`, `updated_date` |
+| `stg_zuora__taxation_item`        | `created_date`, `exchange_rate_date`, `tax_date`, `updated_date` |
+
+
+## Under the Hood
+- Updated `zuora_account_data` seed file to properly test and validate the above error. ([#17](https://github.com/fivetran/dbt_zuora_source/pull/17))
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#16](https://github.com/fivetran/dbt_zuora_source/pull/16))

@@ -1,10 +1,10 @@
 name: 'zuora_source_integration_tests'
-version: '0.2.1'
+version: '0.2.2'
 config-version: 2
 profile: 'integration_tests'
 
 vars:
-  zuora_schema: zuora_source_integration_tests
+  # zuora_schema: zuora_source_integration_tests
   zuora_source:
     zuora_account_identifier: "zuora_account_data" 
     zuora_amendment_identifier: "zuora_amendment_data"
@@ -25,6 +25,8 @@ vars:
     zuora_refund_invoice_payment_identifier: "zuora_refund_invoice_payment_data"
     zuora_subscription_identifier: "zuora_subscription_data"
     zuora_taxation_item_identifier: "zuora_taxation_item_data"
+
+  zuora_schema: zz_dbt_avinash
 
 dispatch:
   - macro_namespace: dbt_utils

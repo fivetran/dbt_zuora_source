@@ -40,7 +40,7 @@ final as (
         charge_type,
         charged_through_date,
         created_by_id,
-        created_date,
+        cast(created_date as {{ dbt.type_timestamp() }}) as created_date,
         credit_option,
         default_payment_method_id,
         deferred_revenue_accounting_code_id,
@@ -88,7 +88,7 @@ final as (
         up_to_periods,
         up_to_periods_type,
         updated_by_id,
-        updated_date, 
+        cast(updated_date as {{ dbt.type_timestamp() }}) as updated_date,
         version,
         weekly_bill_cycle_day,
         row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record

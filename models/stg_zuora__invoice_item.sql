@@ -30,10 +30,10 @@ final as (
         bill_to_contact_id, 
         charge_amount, 
         charge_amount_home_currency,
-        charge_date,
+        cast(charge_date as {{ dbt.type_timestamp() }}) as charge_date,
         charge_name,
         created_by_id,
-        created_date,
+        cast(created_date as {{ dbt.type_timestamp() }}) as created_date,
         deferred_revenue_accounting_code_id,
         exchange_rate,
         exchange_rate_date,
@@ -62,7 +62,7 @@ final as (
         unit_price,
         uom,
         updated_by_id,
-        updated_date,
+        cast(updated_date as {{ dbt.type_timestamp() }}) as updated_date,
         row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record
     from fields
     where not coalesce(_fivetran_deleted, false)

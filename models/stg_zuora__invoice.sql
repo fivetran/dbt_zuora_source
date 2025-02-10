@@ -32,7 +32,7 @@ final as (
         bill_to_contact_id,
         comments,
         created_by_id,
-        created_date,
+        cast(created_date as {{ dbt.type_timestamp() }}) as created_date,
         credit_balance_adjustment_amount,
         credit_memo_amount,
         default_payment_method_id,
@@ -45,12 +45,12 @@ final as (
         includes_usage,
         invoice_date,
         invoice_number,
-        last_email_sent_date,
+        cast(last_email_sent_date as {{ dbt.type_timestamp() }}) as last_email_sent_date,
         parent_account_id,
         payment_amount,
         payment_term,
         posted_by,
-        posted_date, 
+        cast(posted_date as {{ dbt.type_timestamp() }}) as posted_date, 
         refund_amount, 
         sold_to_contact_id,
         source,
@@ -63,7 +63,7 @@ final as (
         transaction_currency,
         transferred_to_accounting,
         updated_by_id,
-        updated_date,
+        cast(updated_date as {{ dbt.type_timestamp() }}) as updated_date,
         row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record
     from fields
     where not coalesce(_fivetran_deleted, false)

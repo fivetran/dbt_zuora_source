@@ -24,7 +24,7 @@ This release introduces the following updates:
 | `stg_zuora__rate_plan_charge`     | `created_date`, `updated_date`                                 |
 | `stg_zuora__refund_invoice_payment`            |     `created_date`, `updated_date`                              |    
 | `stg_zuora__refund`               | `cancelled_on`, `created_date`, `refund_transaction_time`, `settled_on`, `submitted_on`, `updated_date` |
-| `stg_zuora__subscription`         | `cancelled_date`, `contract_acceptance_date`, `contract_effective_date`, `created_date`, `original_created_date`, `service_activation_date`, `subscription_end_date`, `subscription_start_date`, `term_end_date`, `term_start_date`, `updated_date` |
+| `stg_zuora__subscription`         | `cancelled_date`, `contract_acceptance_date`, `contract_effective_date`, `created_date`, `original_created_date`, `service_activation_date`, `term_end_date`, `term_start_date`, `updated_date` |
 | `stg_zuora__taxation_item`        | `created_date`, `exchange_rate_date`, `tax_date`, `updated_date` |
 
 ## Documentation

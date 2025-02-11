@@ -27,12 +27,10 @@ This release introduces the following updates:
 | `stg_zuora__subscription`         | `cancelled_date`, `contract_acceptance_date`, `contract_effective_date`, `created_date`, `original_created_date`, `service_activation_date`, `subscription_end_date`, `subscription_start_date`, `term_end_date`, `term_start_date`, `updated_date` |
 | `stg_zuora__taxation_item`        | `created_date`, `exchange_rate_date`, `tax_date`, `updated_date` |
 
-
-## Under the Hood
-- Updated `zuora_account_data` seed file to properly test and validate the above error. ([#17](https://github.com/fivetran/dbt_zuora_source/pull/17))
-
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#16](https://github.com/fivetran/dbt_zuora_source/pull/16))
+- Moved badges at top of the README below the H1 header to be consistent with popular README formats. ([#17](https://github.com/fivetran/dbt_zuora_source/pull/17))
+
 
 # dbt_zuora_source v0.2.1
 [PR #11](https://github.com/fivetran/dbt_zuora_source/pull/11) includes the following update:

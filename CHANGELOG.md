@@ -3,7 +3,7 @@ This release introduces the following updates:
 
 ## Bug Fixes
 - Leveraged the `{{ dbt.type_timestamp() }}` macro within the staging models for all timestamp fields. ([#17](https://github.com/fivetran/dbt_zuora_source/pull/17))
-  - This is needed as certain Redshift warehouses sync these fields as `timestamp with time zone` fields by default, causing compilation errors in downstream models in the `dbt_zuora` package. This macro safely removes timezone values from the UTC timestamps and ensures successful compilations of these models.
+    - This is needed as certain Redshift warehouses sync these fields as `timestamp with time zone` fields by default, causing compilation errors in downstream models in the `dbt_zuora` package. This macro appropriately removes timezone values from the UTC timestamps and ensures successful compilations of these models.
 
 | **Models**                         | **Field updates cast as timestamp**                                                                 |
 |------------------------------------|------------------------------------------------------------------------------------|

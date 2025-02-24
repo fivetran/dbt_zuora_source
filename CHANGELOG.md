@@ -31,6 +31,9 @@ This release includes the following updates:
 - Corrected references to connectors and connections in the README. ([#16](https://github.com/fivetran/dbt_zuora_source/pull/16))
 - Moved badges at top of the README below the H1 header to be consistent with popular README formats. ([#17](https://github.com/fivetran/dbt_zuora_source/pull/17))
 
+## Under the Hood
+- Updated `run_models.sh` to remove duplicative Buildkite script.
+
 # dbt_zuora_source v0.2.2-a1
 This pre-release introduces the following updates:
 

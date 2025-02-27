@@ -26,10 +26,10 @@ final as (
         active,
         bank_transfer_account_type,
         created_by_id,
-        created_date,
+        cast(created_date as {{ dbt.type_timestamp() }}) as created_date,
         credit_card_type,
-        last_failed_sale_transaction_date,
-        last_transaction_date_time,
+        cast(last_failed_sale_transaction_date as {{ dbt.type_timestamp() }}) as last_failed_sale_transaction_date,
+        cast(last_transaction_date_time as {{ dbt.type_timestamp() }}) as last_transaction_date_time,
         last_transaction_status,
         max_consecutive_payment_failures,
         name,
@@ -41,7 +41,7 @@ final as (
         total_number_of_processed_payments,
         type,
         updated_by_id,
-        updated_date,
+        cast(updated_date as {{ dbt.type_timestamp() }}) as updated_date,
         row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record
     from fields
     where not coalesce(_fivetran_deleted, false)

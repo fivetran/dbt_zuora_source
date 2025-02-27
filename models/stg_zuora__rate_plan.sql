@@ -25,7 +25,7 @@ final as (
         amendment_id,
         bill_to_contact_id,
         created_by_id,
-        created_date,
+        cast(created_date as {{ dbt.type_timestamp() }}) as created_date,
         default_payment_method_id,  
         name,
         original_rate_plan_id, 
@@ -34,7 +34,7 @@ final as (
         sold_to_contact_id,
         subscription_id, 
         updated_by_id,
-        updated_date,
+        cast(updated_date as {{ dbt.type_timestamp() }}) as updated_date,
         row_number() over (partition by id order by updated_date desc) = 1 as is_most_recent_record
 
         {{ fivetran_utils.fill_pass_through_columns('zuora_rate_plan_pass_through_columns') }}

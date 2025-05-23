@@ -37,6 +37,6 @@ vars:
 models:
   zuora_source:
     +schema: zuora_source
-    materialized: table
+    +materialized: table
     tmp:
-      materialized: view
+      +materialized: view

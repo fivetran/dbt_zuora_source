@@ -1,3 +1,12 @@
+# dbt_zuora_source v0.2.3
+
+## Under the Hood
+- Prepends `materialized` configs in the package's `dbt_project.yml` file with `+` to improve compatibility with the newer versions of dbt-core starting with v1.10.0. ([PR #18](https://github.com/fivetran/dbt_zuora_source/pull/18))
+- Updates the package maintainer pull request template. ([PR #19](https://github.com/fivetran/dbt_zuora_source/pull/19))
+
+## Contributors
+- [@b-per](https://github.com/b-per) ([PR #18](https://github.com/fivetran/dbt_zuora_source/pull/18))
+
 # dbt_zuora_source v0.2.2
 This release includes the following updates:
 
